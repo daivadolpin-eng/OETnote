@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OET Writing — Key Study Notes</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; font-size: 14px; color: #222; background: #f0f2f5; }
+
+  .sidebar {
+    position: fixed; top: 0; left: 0; width: 220px; height: 100vh;
+    background: #1F3864; overflow-y: auto; padding: 16px 0; z-index: 100;
+  }
+  .sidebar h2 { color: #aec6ef; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 1px; padding: 8px 16px 4px; }
+  .sidebar a {
+    display: block; color: #cdd8f0; text-decoration: none;
+    padding: 6px 16px; font-size: 12px; line-height: 1.4;
+    border-left: 3px solid transparent; transition: all 0.2s;
+  }
+  .sidebar a:hover, .sidebar a.active {
+    background: #2E4F8A; color: #fff; border-left-color: #5b9cf6;
+  }
+
+  .main { margin-left: 220px; padding: 32px 40px 80px; max-width: 1100px; }
+
+  .title-block { text-align: center; margin-bottom: 40px; }
+  .title-block h1 { font-size: 28px; color: #2E4F8A; font-weight: 700; }
+  .title-block p { color: #666; margin-top: 6px; font-size: 14px; }
+
+  h2.section-title {
+    font-size: 18px; color: #2E4F8A; font-weight: 700;
+    border-left: 5px solid #2E4F8A; padding-left: 12px;
+    margin: 40px 0 14px; scroll-margin-top: 24px;
+  }
+  h3.sub-title {
+    font-size: 14px; color: #1F3864; font-weight: 700;
+    margin: 20px 0 8px;
+  }
+
+  p.body-text { margin: 6px 0; line-height: 1.6; }
+  p.warn { color: #C0392B; margin: 6px 0; line-height: 1.6; }
+  p.good { color: #27AE60; margin: 6px 0; line-height: 1.6; }
+  p.muted { color: #555; margin: 6px 0; line-height: 1.6; font-style: italic; }
+
+  ul.bullets { list-style: none; margin: 6px 0 6px 16px; }
+  ul.bullets li { padding: 3px 0 3px 16px; position: relative; line-height: 1.5; }
+  ul.bullets li::before { content: "•"; position: absolute; left: 0; color: #2E4F8A; }
+
+  table { border-collapse: collapse; width: 100%; margin: 10px 0 16px; font-size: 13px; }
+  thead tr { background: #2E4F8A; color: #fff; }
+  thead th { padding: 9px 12px; text-align: left; font-weight: 600; border: 1px solid #1F3864; }
+  tbody tr:nth-child(even) { background: #F5F7FA; }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody td { padding: 8px 12px; border: 1px solid #CCCCCC; vertical-align: top; line-height: 1.5; }
+
+  .tag-bad { display: inline-block; background: #fde8e8; color: #C0392B;
+    border-radius: 3px; padding: 1px 6px; font-size: 12px; }
+  .tag-good { display: inline-block; background: #e6f9ee; color: #27AE60;
+    border-radius: 3px; padding: 1px 6px; font-size: 12px; }
+
+  .card { background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    padding: 20px 24px; margin-bottom: 8px; }
+
+  .search-bar {
+    position: sticky; top: 0; background: #f0f2f5; padding: 12px 0 8px;
+    z-index: 50; margin-bottom: 8px;
+  }
+  .search-bar input {
+    width: 100%; padding: 9px 14px; border: 1px solid #ccc; border-radius: 6px;
+    font-size: 14px; outline: none;
+  }
+  .search-bar input:focus { border-color: #2E4F8A; box-shadow: 0 0 0 2px #d0e0f7; }
+
+  .highlight { background: #fff3cd; border-radius: 2px; }
+  .hidden { display: none !important; }
+
+  @media (max-width: 700px) {
+    .sidebar { display: none; }
+    .main { margin-left: 0; padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <h2>Contents</h2>
+  <a href="#s1">1. Letter Layout</a>
+  <a href="#s2">2. Marking Criteria</a>
+  <a href="#s3">3. Word Count</a>
+  <a href="#s4">4. Linking Words</a>
+  <a href="#s5">5. Introduction</a>
+  <a href="#s6">6. Medication Verbs</a>
+  <a href="#s7">7. Grammar Errors</a>
+  <a href="#s8">8. Clinical Accuracy</a>
+  <a href="#s8a">8-1. Emergency Actions</a>
+  <a href="#s9">9. Word Usage</a>
+  <a href="#s10">10. During / While</a>
+  <a href="#s11">11. Drug Names</a>
+  <a href="#s12">12. Word Count Tricks</a>
+  <a href="#s13">13. Genre & Style</a>
+  <a href="#s14">14. Useful Phrases</a>
+</nav>
+
+<div class="main">
+  <div class="title-block">
+    <h1>OET Writing — Key Study Notes</h1>
+    <p>Pharmacy &nbsp;|&nbsp; Applies to Carer / GP / Patient letter types</p>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="🔍  Search anywhere in these notes..." oninput="doSearch()">
+  </div>
+
+  <!-- S1 -->
+  <div class="card" id="s1">
+    <h2 class="section-title">1. Letter Layout</h2>
+    <p class="body-text">Based on official OET samples — always follow this order.</p>
+    <table>
+      <thead><tr><th>Order</th><th>Element</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Recipient's name</td><td>Mr Gerald Whitfield</td></tr>
+        <tr><td>2</td><td>Address</td><td>22 Laurel Crescent, Riverdale</td></tr>
+        <tr><td>3</td><td>Date</td><td>21 June 2026</td></tr>
+        <tr><td>4</td><td>Greeting</td><td>Dear Mr Whitfield,</td></tr>
+        <tr><td>5</td><td>Re: line (include DOB if available)</td><td>Re: Medication for Mrs Doris Whitfield (DOB: 14/03/1936)</td></tr>
+        <tr><td>6</td><td>Body</td><td>180–200 words (excludes date/address/greeting)</td></tr>
+        <tr><td>7</td><td>Closing</td><td>Yours sincerely, / Sincerely,</td></tr>
+        <tr><td>8</td><td>Title</td><td>Pharmacist</td></tr>
+      </tbody>
+    </table>
+    <p class="warn">⚠️ Date goes after the address, before Dear — this is the order used in official OET samples.</p>
+    <p class="body-text">⚠️ DOB in the Re: line — include if given in the case notes, omit if not.</p>
+  </div>
+
+  <!-- S2 -->
+  <div class="card" id="s2">
+    <h2 class="section-title">2. The 6 OET Marking Criteria</h2>
+    <table>
+      <thead><tr><th>Criterion</th><th>What it assesses</th><th>B-grade benchmark</th></tr></thead>
+      <tbody>
+        <tr><td>Purpose</td><td>Is the purpose of the letter clear?</td><td>2+ out of 3</td></tr>
+        <tr><td>Content</td><td>Is the necessary clinical information accurate and complete?</td><td>5+ out of 7</td></tr>
+        <tr><td>Conciseness &amp; Clarity</td><td>Is it written concisely, with only essential information?</td><td>5+ out of 7</td></tr>
+        <tr><td>Genre &amp; Style</td><td>Is the language appropriate for the reader?</td><td>5+ out of 7</td></tr>
+        <tr><td>Organisation &amp; Layout</td><td>Is the paragraph structure and letter format logical?</td><td>5+ out of 7</td></tr>
+        <tr><td>Language</td><td>Is the grammar, vocabulary, and spelling accurate?</td><td>5+ out of 7</td></tr>
+      </tbody>
+    </table>
+    <p class="body-text">Key principle: if even one of the six criteria is weak, the overall grade is pulled down — balance matters.</p>
+  </div>
+
+  <!-- S3 -->
+  <div class="card" id="s3">
+    <h2 class="section-title">3. Word Count</h2>
+    <ul class="bullets">
+      <li>Target range: <strong>180–200 words</strong> (body only)</li>
+      <li>Date, address, greeting (Dear), and closing (Sincerely) are <strong>NOT counted</strong></li>
+      <li>Exceeding the limit directly lowers the Conciseness &amp; Clarity score</li>
+      <li>Main causes of overrunning: abstract introductions, overuse of linking words, repeated phrasing</li>
+    </ul>
+  </div>
+
+  <!-- S4 -->
+  <div class="card" id="s4">
+    <h2 class="section-title">4. Linking Words — Myth vs Fact</h2>
+    <p class="warn">❌ Myth: using Furthermore / Moreover / In addition often raises your score.</p>
+    <p class="good">✅ Fact: repeating the same linker reads like a memorised template and can actually lower your score.</p>
+    <br>
+    <table>
+      <thead><tr><th>Function</th><th>Linking words you can use</th></tr></thead>
+      <tbody>
+        <tr><td>Addition</td><td>additionally, furthermore, in addition, she also</td></tr>
+        <tr><td>Time/Sequence</td><td>on discharge, following this, subsequently, prior to, at the time of</td></tr>
+        <tr><td>Cause/Result</td><td>as a result, consequently, therefore, given that, due to</td></tr>
+        <tr><td>Contrast</td><td>however, although, despite this, nevertheless</td></tr>
+        <tr><td>Specification</td><td>more specifically, in particular, notably</td></tr>
+        <tr><td>Condition</td><td>should [X] occur, if [X] develops, in the event of</td></tr>
+      </tbody>
+    </table>
+    <p class="body-text">Practical tip: don't use the same linker twice in one paragraph. If you can join ideas with a comma + "and" instead, that's often more concise.</p>
+  </div>
+
+  <!-- S5 -->
+  <div class="card" id="s5">
+    <h2 class="section-title">5. Introduction — Common Mistake</h2>
+    <p class="warn">❌ Weak introduction (two content-free abstract sentences = ~48 wasted words)</p>
+    <p class="muted">"Although you are already well aware of previous medication regimen, the instruction of current medication regimen is necessary to be checked. Following the correct explanation, the usage of newly prescribed medication will be safe and effective."</p>
+    <br>
+    <p class="good">✅ Strong introduction (purpose + clinical context in one sentence)</p>
+    <p class="muted">"I am writing to explain your new medicines after your recent hospital stay for a COPD flare-up, including a change of inhaler and two new short courses of treatment."</p>
+    <br>
+    <p class="body-text">Principle: a longer introduction is fine when filled with real clinical information (diagnosis, drug names, reason for admission) — not when filled with generic statements.</p>
+  </div>
+
+  <!-- S6 -->
+  <div class="card" id="s6">
+    <h2 class="section-title">6. Key Medication Expressions — Verbs</h2>
+    <table>
+      <thead><tr><th>Form of medication</th><th>Correct verb</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Tablet/capsule</td><td>take</td><td>take one tablet once daily</td></tr>
+        <tr><td>Inhaler (device)</td><td>use</td><td>use your inhaler as before</td></tr>
+        <tr><td>One dose from inhaler (puff)</td><td>take / inhale</td><td>take two puffs twice daily</td></tr>
+        <tr><td>Injection</td><td>give / administer</td><td>give an injection under the skin</td></tr>
+        <tr><td>Amount consumed (noun)</td><td>intake</td><td>reduce your alcohol intake</td></tr>
+      </tbody>
+    </table>
+    <p class="warn">⚠️ "intake" is a noun only — it can never be used as a verb.</p>
+    <ul class="bullets">
+      <li><span class="tag-bad">✗</span> "Intake Metformin leads to GI upset."</li>
+      <li><span class="tag-good">✓</span> "Taking Metformin may cause GI upset."</li>
+      <li><span class="tag-good">✓</span> "Reduce your alcohol intake."</li>
+    </ul>
+  </div>
+
+  <!-- S7 -->
+  <div class="card" id="s7">
+    <h2 class="section-title">7. Recurring Grammar Errors</h2>
+    <table>
+      <thead><tr><th>Error type</th><th>Incorrect</th><th>Correct</th></tr></thead>
+      <tbody>
+        <tr><td>Missing passive voice</td><td><span class="tag-bad">She admitted hospital</span></td><td>She was admitted to hospital</td></tr>
+        <tr><td>Double comparative</td><td><span class="tag-bad">more healthier</span></td><td>healthier</td></tr>
+        <tr><td>Tense mismatch</td><td><span class="tag-bad">the dose is also reduced</span></td><td>the dose was also reduced</td></tr>
+        <tr><td>Subject-verb agreement</td><td><span class="tag-bad">medication regimen were changed</span></td><td>medication regimen was changed</td></tr>
+        <tr><td>Missing article</td><td><span class="tag-bad">once a daily</span></td><td>once daily</td></tr>
+        <tr><td>Missing article</td><td><span class="tag-bad">for same reason</span></td><td>for the same reason</td></tr>
+        <tr><td>Missing plural</td><td><span class="tag-bad">missed or doubled dose</span></td><td>missed or doubled doses</td></tr>
+        <tr><td>Wrong word form (verb)</td><td><span class="tag-bad">intake Metformin</span></td><td>taking Metformin</td></tr>
+        <tr><td>Wrong word form (noun)</td><td><span class="tag-bad">alcohol consume increases</span></td><td>alcohol consumption increases</td></tr>
+        <tr><td>Awkward passive</td><td><span class="tag-bad">she was prescribed to take Apixaban</span></td><td>she was also prescribed apixaban</td></tr>
+        <tr><td>Weak sentence opener</td><td><span class="tag-bad">And, stroke clinic...</span></td><td>A stroke clinic appointment has been arranged...</td></tr>
+        <tr><td>Incorrect conditional</td><td><span class="tag-bad">complete course if feeling good</span></td><td>complete the full course even if you feel better</td></tr>
+        <tr><td>Tense error</td><td><span class="tag-bad">GP review have arranged</span></td><td>A GP review has been arranged</td></tr>
+        <tr><td>Awkward phrasing</td><td><span class="tag-bad">breath difficulty worsens</span></td><td>if your breathing gets worse</td></tr>
+        <tr><td>Awkward phrasing</td><td><span class="tag-bad">wash mouth with water</span></td><td>rinse your mouth with water</td></tr>
+        <tr><td>Awkward phrasing</td><td><span class="tag-bad">glucose state</span></td><td>blood glucose levels</td></tr>
+        <tr><td>Preposition error (duration)</td><td><span class="tag-bad">"in 3 weeks"</span> (means 3 weeks from now)</td><td>"for 3 weeks" or "for 21 days" (means over a 3-week period)</td></tr>
+        <tr><td>Misused concession</td><td><span class="tag-bad">regardless of working differently</span></td><td>Although rivaroxaban works differently to warfarin, a bleeding risk still exists.</td></tr>
+        <tr><td>Imprecise meaning</td><td><span class="tag-bad">due to not decreasing the consumption of other medication</span></td><td>to avoid interfering with the absorption of your other medications</td></tr>
+        <tr><td>Spelling error</td><td><span class="tag-bad">immediatly</span></td><td>immediately</td></tr>
+        <tr><td>Awkward passive</td><td><span class="tag-bad">will be done in 6 weeks time</span></td><td>has been arranged for six weeks' time</td></tr>
+        <tr><td>Preposition error (place)</td><td><span class="tag-bad">seek emergency department</span></td><td>"seek emergency help" or "go to the emergency department"</td></tr>
+        <tr><td>Article error</td><td><span class="tag-bad">as an wife and a carer</span></td><td>as his wife and primary carer — "wife" starts with /w/ consonant, so "an" is wrong; use possessive "his"</td></tr>
+        <tr><td>Imprecise meaning</td><td><span class="tag-bad">decrease the risk of cardiovascular symptom</span></td><td>reduce his cardiovascular risk — atorvastatin lowers future risk, not existing symptoms</td></tr>
+        <tr><td>Wrong subject for verb</td><td><span class="tag-bad">He has been arranged to visit</span></td><td>Follow-up appointments have been arranged — "arrange" cannot take a person as subject</td></tr>
+        <tr><td>Extra preposition</td><td><span class="tag-bad">visited to my community pharmacy</span></td><td>visited my community pharmacy — "visit" is transitive; no preposition needed</td></tr>
+        <tr><td>Missing passive / ambiguous subject</td><td><span class="tag-bad">She visited...and counselled on her medication</span></td><td>She visited...and was counselled — without "was", reads as if she did the counselling</td></tr>
+        <tr><td>Wrong concession word</td><td><span class="tag-bad">Regardless of taking ramipril, her BP was elevated</span></td><td>Despite taking ramipril, her BP was elevated at 152/94mmHg — "despite" is correct for concession</td></tr>
+        <tr><td>Capitalisation + weak phrasing</td><td><span class="tag-bad">her bp...was relatively high</span></td><td>her BP was elevated at 152/94mmHg — always capitalise BP; "elevated" is more precise</td></tr>
+        <tr><td>Wrong verb</td><td><span class="tag-bad">without announcing GP</span></td><td>without informing her GP — "announce" is for public declarations</td></tr>
+        <tr><td>Wrong verb + wrong word form</td><td><span class="tag-bad">She complained symptoms including anxious and jittery</span></td><td>She reported feeling anxious and jittery — "complain" needs "of/about"; use adjectives with "feeling"</td></tr>
+        <tr><td>Subject-verb agreement</td><td><span class="tag-bad">levothyroxine have to be taken</span></td><td>levothyroxine has to be taken — singular noun</td></tr>
+        <tr><td>Unnatural phrasing</td><td><span class="tag-bad">30 minute compulsory interval food or coffee</span></td><td>there must be a 30-minute gap before food or coffee</td></tr>
+        <tr><td>Wrong passive construction</td><td><span class="tag-bad">she was advised to be taken zopiclone</span></td><td>she was advised that zopiclone should only be taken at night, as required</td></tr>
+        <tr><td>Missing preposition after advise</td><td><span class="tag-bad">she was advised the dependence risk</span></td><td>she was advised of the dependence risk — "advise" requires "of" before a noun phrase</td></tr>
+        <tr><td>Two structures collided</td><td><span class="tag-bad">I recommend a review her medication to be taken correctly</span></td><td>I recommend a medication review to ensure her medicines are being taken correctly.</td></tr>
+        <tr><td>Vague referent</td><td><span class="tag-bad">Given her information</span></td><td>Given these findings — "these findings" refers precisely to the clinical observations just listed</td></tr>
+        <tr><td>Logical inconsistency</td><td><span class="tag-bad">ensure her safe medication usage and current BP elevation</span></td><td>ensure her medications are used safely and to address her current BP elevation</td></tr>
+        <tr><td>Date format</td><td><span class="tag-bad">30 Jun 2026</span></td><td>30 June 2026 — OET requires full month name, not abbreviation</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S8 -->
+  <div class="card" id="s8">
+    <h2 class="section-title">8. Clinical Accuracy — Expressions to Watch</h2>
+    <table>
+      <thead><tr><th>Drug/Situation</th><th>Inaccurate phrasing</th><th>Accurate phrasing</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Apixaban (AF patient)</td><td><span class="tag-bad">to prevent Atrial Fibrillation</span></td><td>to reduce stroke risk associated with AF</td><td>Apixaban does not prevent AF — it reduces embolic stroke risk caused by AF</td></tr>
+        <tr><td>Doxycycline (antibiotic)</td><td><span class="tag-bad">complete course if feeling good</span></td><td>complete the full course even if you feel better</td><td>"If feeling good" reverses the meaning — course must be completed when symptoms improve</td></tr>
+        <tr><td>Prednisolone taper</td><td><span class="tag-bad">stop when done</span></td><td>do not stop this medicine early / do not stop abruptly</td><td>Steroids must never be stopped suddenly — must be stated explicitly</td></tr>
+        <tr><td>ACE inhibitor + aspirin allergy</td><td><span class="tag-bad">not mentioned</span></td><td>if throat or lip swelling occurs, seek emergency help immediately</td><td>ACE inhibitors carry angioedema risk — especially relevant with aspirin allergy</td></tr>
+        <tr><td>Atorvastatin</td><td><span class="tag-bad">decrease the risk of cardiovascular symptom</span></td><td>reduce cardiovascular risk</td><td>Atorvastatin lowers future cardiovascular event risk — not existing symptoms</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S8a -->
+  <div class="card" id="s8a">
+    <h2 class="section-title">8-1. Emergency Action Guidance</h2>
+    <table>
+      <thead><tr><th>Situation</th><th>Action</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Mild side effect (headache, cough, mild dizziness)</td><td>contact your GP</td><td>"Ramipril may cause a dry cough — contact your GP if this is troublesome."</td></tr>
+        <tr><td>Moderate side effect (bleeding, persistent vomiting)</td><td>seek medical advice promptly</td><td>"If vomiting lasts more than 24 hours, stop metformin and seek medical advice."</td></tr>
+        <tr><td>Emergency — patient can mobilise independently</td><td>go to the emergency department</td><td>"If chest pain develops, go to the emergency department immediately."</td></tr>
+        <tr><td>Emergency — patient cannot mobilise (stroke, anaphylaxis, heart attack)</td><td><strong>call 111 immediately</strong></td><td>"If sudden weakness, facial drooping or speech difficulty occurs, call 111 immediately."</td></tr>
+      </tbody>
+    </table>
+    <p class="warn">⚠️ Why stroke recurrence requires "call 111" rather than "go to emergency department":</p>
+    <ul class="bullets">
+      <li>The patient may already be unable to move independently due to weakness/hemiplegia</li>
+      <li>Stroke symptoms (impaired consciousness, speech, movement) prevent the patient from judging or moving safely</li>
+      <li>Standard clinical guidance is for the carer to call emergency services immediately</li>
+    </ul>
+  </div>
+
+  <!-- S9 -->
+  <div class="card" id="s9">
+    <h2 class="section-title">9. Word Usage — intake / indeed / in need / tolerated / avoid</h2>
+    <table>
+      <thead><tr><th>Word/Expression</th><th>Part of speech</th><th>Meaning</th><th>Correct example</th><th>Caution</th></tr></thead>
+      <tbody>
+        <tr><td>intake</td><td>noun only</td><td>amount consumed/inhaled</td><td>reduce your alcohol intake</td><td>Can never be used as a verb</td></tr>
+        <tr><td>indeed</td><td>adverb</td><td>in fact, truly (emphasis)</td><td>This is indeed a serious side effect.</td><td>Better suited to academic writing — no need to use it often in OET</td></tr>
+        <tr><td>in need</td><td>adjective phrase</td><td>requiring help/support</td><td>please seek help if in need</td><td>"inneed" is not a word — must be two words</td></tr>
+        <tr><td>well tolerated</td><td>fixed pharmacological phrase</td><td>handled without significant adverse effects</td><td>increase the dose if well tolerated</td><td>Do not confuse with "well adapted" (adjusting to surroundings)</td></tr>
+        <tr><td>well adapted</td><td>general expression</td><td>accustomed to an environment/situation</td><td>She was well adapted to life in New Zealand.</td><td>Cannot be used in medication context — use "well tolerated"</td></tr>
+        <tr><td>avoid</td><td>verb</td><td>to refrain from (instructional)</td><td>Avoid ibuprofen. / Avoid grapefruit.</td><td>Standard concise expression for OET clinical letters</td></tr>
+        <tr><td>banned / prohibited</td><td>verb/adjective</td><td>forbidden (legal/regulatory)</td><td>Smoking is banned in this area.</td><td>Not appropriate for medication instructions — use "avoid"</td></tr>
+        <tr><td>leads to</td><td>verb phrase</td><td>results in inevitably (strong causation)</td><td>Smoking leads to lung disease.</td><td>Implies certainty for side effects — use "may cause" instead</td></tr>
+        <tr><td>may cause</td><td>verb phrase</td><td>could result in (possibility)</td><td>Taking atorvastatin may cause muscle pain.</td><td>Standard phrasing for side effects — always prefer over "leads to"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S10 -->
+  <div class="card" id="s10">
+    <h2 class="section-title">10. During / While — Time Prepositions</h2>
+    <p class="warn">❌ Incorrect: "During given this medication"</p>
+    <p class="warn">→ "During" is a preposition and can only be followed by a noun or gerund — not a past participle like "given".</p>
+    <br>
+    <table>
+      <thead><tr><th>Expression</th><th>Nuance</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>While taking these medications</td><td>while currently taking them (default)</td><td>While taking these medications, avoid alcohol.</td></tr>
+        <tr><td>Throughout your treatment</td><td>emphasises the whole period</td><td>Throughout your treatment, monitor for side effects.</td></tr>
+        <tr><td>During your treatment</td><td>during the treatment period</td><td>During your treatment, it is important to...</td></tr>
+        <tr><td>During this course of treatment</td><td>during this particular course</td><td>During this course of treatment, avoid grapefruit.</td></tr>
+        <tr><td>Whilst on these medications</td><td>while taking them (British English)</td><td>Whilst on these medications, limit alcohol intake.</td></tr>
+        <tr><td>When taking [specific drug]</td><td>when taking a specific drug</td><td>When taking atorvastatin, avoid grapefruit.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S11 -->
+  <div class="card" id="s11">
+    <h2 class="section-title">11. Drug Name Capitalisation Rules</h2>
+    <table>
+      <thead><tr><th>Type</th><th>Description</th><th>Examples</th><th>Capitalisation</th></tr></thead>
+      <tbody>
+        <tr><td>Brand name</td><td>Proprietary name given by manufacturer</td><td>Xarelto, Lipitor, Panadeine Forte, Trelegy Ellipta</td><td>Capitalise first letter</td></tr>
+        <tr><td>Generic name</td><td>International active ingredient name</td><td>rivaroxaban, atorvastatin, paracetamol, metformin</td><td>Lowercase</td></tr>
+      </tbody>
+    </table>
+    <p class="good">✅ Correct examples</p>
+    <ul class="bullets">
+      <li>"Xarelto (rivaroxaban) 15mg twice daily" — brand capitalised, generic lowercase</li>
+      <li>"take rivaroxaban 15mg twice daily" — lowercase when generic name used alone</li>
+      <li>"take Xarelto 15mg twice daily" — capitalised when brand name used alone</li>
+    </ul>
+    <p class="warn">⚠️ Two practical rules</p>
+    <ul class="bullets">
+      <li>Be consistent — don't mix capitalised and lowercase forms of the same drug in one letter</li>
+      <li>Brand names must always be capitalised — "xarelto" in lowercase is incorrect</li>
+    </ul>
+    <p class="body-text">Recommended: introduce the drug once as "Xarelto (rivaroxaban)", then use one form consistently afterwards.</p>
+  </div>
+
+  <!-- S12 -->
+  <div class="card" id="s12">
+    <h2 class="section-title">12. Five Techniques for Trimming Word Count</h2>
+    <table>
+      <thead><tr><th>Technique</th><th>Before</th><th>After</th></tr></thead>
+      <tbody>
+        <tr><td>1. Cut abstract sentences</td><td><span class="tag-bad">"Following the correct explanation, the usage of newly prescribed medication will be safe and effective."</span></td><td>→ Delete entirely (no real information)</td></tr>
+        <tr><td>2. Combine info with a dash (—)</td><td>"She takes one puff. It is taken once a day."</td><td>"one puff, once daily"</td></tr>
+        <tr><td>3. Passive → active voice</td><td>"GP appointment has been arranged"</td><td>"Your GP will see you in one week"</td></tr>
+        <tr><td>4. Merge repeated sentences</td><td>"Like Doxycycline, Prednisolone course should be completed."</td><td>"do not stop this medicine early" (merged into previous sentence)</td></tr>
+        <tr><td>5. Combine two drugs in one sentence</td><td>"Furthermore, Ramipril was reduced. In addition, Clopidogrel was added."</td><td>"Her ramipril was reduced to 2.5mg, and clopidogrel 75mg was started."</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S13 -->
+  <div class="card" id="s13">
+    <h2 class="section-title">13. Genre &amp; Style — Language by Reader</h2>
+    <table>
+      <thead><tr><th>Reader</th><th>Language level</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>GP/Doctor</td><td>Technical terminology acceptable</td><td>hypoglycaemia, rhabdomyolysis, ACE inhibitor, eGFR</td></tr>
+        <tr><td>Carer (family member)</td><td>Semi-technical — some terms with brief explanation</td><td>"blood-thinning medication (anticoagulant)"</td></tr>
+        <tr><td>Patient (the patient themselves)</td><td>Plain, everyday language</td><td>"difficulty sleeping" (not insomnia), "upset stomach" (not GI upset)</td></tr>
+      </tbody>
+    </table>
+    <p class="warn">Using technical jargon in a patient letter lowers the Genre &amp; Style score — always replace it with plain language.</p>
+  </div>
+
+  <!-- S14 -->
+  <div class="card" id="s14">
+    <h2 class="section-title">14. Ready-to-Use Phrases for OET Letters</h2>
+    <h3 class="sub-title">Introductions</h3>
+    <ul class="bullets">
+      <li>I am writing to advise you about your mother's medication following her discharge from hospital.</li>
+      <li>I am writing to outline the new medication prescribed for [patient name] and to raise some concerns regarding her current management.</li>
+      <li>I am writing to explain your new medicines following your recent hospital admission for [condition].</li>
+    </ul>
+    <h3 class="sub-title">Explaining medication changes</h3>
+    <ul class="bullets">
+      <li>This has been replaced by / switched to [drug] due to [reason].</li>
+      <li>The dose has been reduced to [X]mg daily for the same reason.</li>
+      <li>[Drug] has been prescribed to prevent further [condition].</li>
+      <li>Please complete the full course even if you start to feel better.</li>
+      <li>Do not stop this medication abruptly.</li>
+    </ul>
+    <h3 class="sub-title">Side effects and warnings</h3>
+    <ul class="bullets">
+      <li>Should [symptom] occur, please seek medical advice promptly.</li>
+      <li>If you notice any unusual bruising, blood in urine or stool, or severe headache, please contact her GP immediately.</li>
+      <li>If your breathing worsens, a fever develops, or there is no improvement within 48 hours, seek urgent medical attention.</li>
+      <li>If throat or lip swelling occurs, seek emergency help immediately.</li>
+    </ul>
+    <h3 class="sub-title">Closing</h3>
+    <ul class="bullets">
+      <li>Please do not hesitate to contact me if you have any further questions.</li>
+      <li>A follow-up appointment has been arranged with her GP in four weeks to recheck her renal function and blood pressure.</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  // Sidebar active link highlight on scroll
+  const sections = document.querySelectorAll('[id^="s"]');
+  const navLinks = document.querySelectorAll('.sidebar a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 60) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // Search
+  function doSearch() {
+    const q = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.card');
+
+    // Remove previous highlights
+    document.querySelectorAll('.highlight').forEach(el => {
+      el.outerHTML = el.innerHTML;
+    });
+
+    if (!q) {
+      cards.forEach(c => c.classList.remove('hidden'));
+      return;
+    }
+
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      if (text.includes(q)) {
+        card.classList.remove('hidden');
+        highlightText(card, q);
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  function highlightText(el, q) {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+      const idx = node.nodeValue.toLowerCase().indexOf(q);
+      if (idx === -1) return;
+      const span = document.createElement('span');
+      span.className = 'highlight';
+      const range = document.createRange();
+      range.setStart(node, idx);
+      range.setEnd(node, idx + q.length);
+      range.surroundContents(span);
+    });
+  }
+</script>
+</body>
+</html>
