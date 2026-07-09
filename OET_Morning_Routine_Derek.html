@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OET Morning Routine — Daily Key Phrases</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #1a1f2e; color: #e8e4dc; font-size: 14px; min-height: 100vh; }
+
+  header {
+    background: linear-gradient(135deg, #2C5F8A, #1a3a5c);
+    padding: 28px 24px 20px;
+    text-align: center;
+    border-bottom: 3px solid #c8a85a;
+  }
+  header h1 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  header p { font-size: 13px; color: #c8d8f0; margin-bottom: 12px; }
+
+  .timer-bar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 12px;
+  }
+  .timer-item {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    color: #c8a85a;
+    font-weight: 600;
+  }
+
+  .progress-bar-container {
+    background: #242938;
+    padding: 12px 24px;
+    border-bottom: 1px solid #343a50;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .progress-label { font-size: 12px; color: #a0a8b8; min-width: 80px; }
+  .progress-bar { flex: 1; height: 6px; background: #343a50; border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: #c8a85a; border-radius: 3px; width: 0%; transition: width 0.3s; }
+  .progress-count { font-size: 12px; color: #c8a85a; font-weight: 700; min-width: 50px; text-align: right; }
+
+  .container { padding: 20px 24px; max-width: 800px; margin: 0 auto; }
+
+  .instruction-box {
+    background: #242938;
+    border: 1px solid #c8a85a;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: #c8d0e0;
+    line-height: 1.7;
+  }
+  .instruction-box strong { color: #c8a85a; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c8a85a;
+    margin: 24px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #343a50;
+  }
+
+  .phrase-card {
+    background: #242938;
+    border: 1px solid #343a50;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 14px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .phrase-card:hover { border-color: #c8a85a; background: #2a3048; }
+  .phrase-card.done { border-color: #1a7a1a; background: #1a2a1a; }
+  .phrase-card.done .phrase-text { color: #4ab84a; }
+
+  .phrase-num {
+    font-size: 10px;
+    color: #6a7290;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .phrase-text {
+    font-size: 15px;
+    color: #e8e4dc;
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .phrase-context {
+    font-size: 11px;
+    color: #6a7290;
+    margin-top: 5px;
+  }
+  .phrase-card.done .phrase-context { color: #2a6a2a; }
+
+  .check-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .phrase-card.done .check-icon { opacity: 1; }
+
+  .stress-word {
+    font-weight: 900;
+    color: #c8a85a;
+    font-style: normal;
+  }
+
+  .reset-btn {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    background: transparent;
+    border: 1px solid #c8a85a;
+    color: #c8a85a;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 24px;
+    transition: all 0.2s;
+  }
+  .reset-btn:hover { background: #c8a85a; color: #1a1f2e; }
+
+  .complete-banner {
+    display: none;
+    background: linear-gradient(135deg, #1a5c1a, #2a7a2a);
+    border: 1px solid #4ab84a;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .complete-banner h2 { color: #4ab84a; font-size: 18px; margin-bottom: 6px; }
+  .complete-banner p { color: #c8e8c8; font-size: 13px; }
+
+  @media (max-width: 600px) {
+    .phrase-text { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>☀️ OET Morning Routine</h1>
+  <p>Derek Kim · Pharmacist · Read every phrase aloud — clearly and slowly</p>
+  <div class="timer-bar">
+    <span class="timer-item">⏱ ~10 minutes total</span>
+    <span class="timer-item">📋 50 phrases</span>
+    <span class="timer-item">🔊 Say each one TWICE</span>
+  </div>
+</header>
+
+<div class="progress-bar-container">
+  <span class="progress-label">Today's progress</span>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <span class="progress-count" id="progressCount">0 / 50</span>
+</div>
+
+<div class="container">
+
+  <div class="instruction-box">
+    <strong>How to use this:</strong> Tap each phrase as you say it aloud — it will turn green. Say every phrase <strong>twice</strong>, slowly and clearly. Focus on the <strong style="color:#c8a85a;">golden words</strong> — those are the key stress points. Complete all 50 every morning before your study session.
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section-label">1. Opening the Consultation</div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">01</div>
+    <div class="phrase-text">Hello, I'm the <span class="stress-word">pharmacist</span> on duty today. How can I <span class="stress-word">help</span> you?</div>
+    <div class="phrase-context">→ Standard confident opening</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">02</div>
+    <div class="phrase-text">Before I explain, <span class="stress-word">could I ask</span> you a few questions first?</div>
+    <div class="phrase-context">→ Always gather information before giving advice</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">03</div>
+    <div class="phrase-text">I'm <span class="stress-word">really glad</span> you asked about this — it's a very important question.</div>
+    <div class="phrase-context">→ Encouraging the patient to ask</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">04</div>
+    <div class="phrase-text">Are you taking any other <span class="stress-word">medications</span> or have any other <span class="stress-word">health conditions</span>?</div>
+    <div class="phrase-context">→ Essential history-taking question</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section-label">2. Empathy & Acknowledgment</div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">05</div>
+    <div class="phrase-text">I <span class="stress-word">completely understand</span> your concern about that.</div>
+    <div class="phrase-context">→ Use whenever a patient expresses worry</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">06</div>
+    <div class="phrase-text">I can <span class="stress-word">see</span> why that would be <span class="stress-word">worrying</span> for you — that's actually a very <span class="stress-word">common</span> concern.</div>
+    <div class="phrase-context">→ Validating + normalising patient anxiety</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">07</div>
+    <div class="phrase-text">A new <span class="stress-word">diagnosis</span> is a lot to take in — it's <span class="stress-word">completely natural</span> to feel worried.</div>
+    <div class="phrase-context">→ For newly diagnosed patients (diabetes, osteoporosis, etc.)</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">08</div>
+    <div class="phrase-text">I <span class="stress-word">understand</span> you feel well right now — but the <span class="stress-word">danger</span> is still very real.</div>
+    <div class="phrase-context">→ When patient is asymptomatic but at risk (lithium, St John's Wort)</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">09</div>
+    <div class="phrase-text">I can hear that you're finding this <span class="stress-word">difficult to accept</span> — and that's <span class="stress-word">completely understandable</span>.</div>
+    <div class="phrase-context">→ Emotional resistance — patient reluctant to accept diagnosis or medication</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">10</div>
+    <div class="phrase-text">I <span class="stress-word">completely understand</span> how worried you must be — it's very hard to see your little one <span class="stress-word">unwell</span>.</div>
+    <div class="phrase-context">→ Paediatric scenarios — always empathise with the parent first</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section-label">3. Explaining & Reassuring</div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">11</div>
+    <div class="phrase-text">Let me <span class="stress-word">reassure</span> you about that — let me <span class="stress-word">explain</span>.</div>
+    <div class="phrase-context">→ Before correcting a misconception</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">12</div>
+    <div class="phrase-text">Let me address your concerns <span class="stress-word">one by one</span>.</div>
+    <div class="phrase-context">→ When patient has multiple questions — structure your answer</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">13</div>
+    <div class="phrase-text">I'll explain this <span class="stress-word">step by step</span> so you feel <span class="stress-word">confident</span>.</div>
+    <div class="phrase-context">→ Device instruction (EpiPen, patch, inhaler)</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">14</div>
+    <div class="phrase-text">Just because something is <span class="stress-word">natural</span> or <span class="stress-word">herbal</span> doesn't mean it's <span class="stress-word">safe</span>.</div>
+    <div class="phrase-context">→ St John's Wort / herbal supplement misconception</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">15</div>
+    <div class="phrase-text">The evidence for that is actually very <span class="stress-word">limited</span> — the <span class="stress-word">benefits</span> of this medication far <span class="stress-word">outweigh</span> that risk.</div>
+    <div class="phrase-context">→ Memory loss from statins / rare side effect concerns</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">16</div>
+    <div class="phrase-text">Does that <span class="stress-word">make sense</span>? / Does that <span class="stress-word">help</span> to explain it?</div>
+    <div class="phrase-context">→ After every major explanation — check understanding</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section-label">4. Urgent Safety Warnings</div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">17</div>
+    <div class="phrase-text">This is <span class="stress-word">actually very important</span> — please <span class="stress-word">listen carefully</span>.</div>
+    <div class="phrase-context">→ Before any serious drug interaction or safety warning</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">18</div>
+    <div class="phrase-text">I need to talk to you about <span class="stress-word">a few things urgently</span>.</div>
+    <div class="phrase-context">→ When there are multiple simultaneous safety issues</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">19</div>
+    <div class="phrase-text"><span class="stress-word">Stop</span> taking it <span class="stress-word">straight away</span> and use <span class="stress-word">paracetamol</span> instead.</div>
+    <div class="phrase-context">→ Ibuprofen + methotrexate / lithium / any NSAID interaction</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">20</div>
+    <div class="phrase-text">Together, these things <span class="stress-word">significantly increase</span> your risk — this needs <span class="stress-word">urgent</span> medical attention.</div>
+    <div class="phrase-context">→ Multiple compounding risk factors (methotrexate triple risk, lithium)</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">21</div>
+    <div class="phrase-text">If you notice <span class="stress-word">any</span> of these symptoms, <span class="stress-word">go straight</span> to the emergency room — <span class="stress-word">do not wait</span>.</div>
+    <div class="phrase-context">→ Toxicity warning signs — methotrexate, lithium, anaphylaxis</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">22</div>
+    <div class="phrase-text">Please <span class="stress-word">contact your GP today</span> — not next week, <span class="stress-word">today</span>.</div>
+    <div class="phrase-context">→ Same-day escalation required</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">23</div>
+    <div class="phrase-text">By the time you <span class="stress-word">feel unwell</span>, the levels can already be <span class="stress-word">dangerously high</span>.</div>
+    <div class="phrase-context">→ Lithium toxicity — patient downplaying risk</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section-label">5. Refusing Requests / Redirecting</div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">24</div>
+    <div class="phrase-text">I'm <span class="stress-word">afraid</span> I'm not able to recommend that — I know that's <span class="stress-word">not what you were hoping</span> to hear.</div>
+    <div class="phrase-context">→ Refusing OTC request (paediatric cold medicine, halitosis products)</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">25</div>
+    <div class="phrase-text">These medicines are <span class="stress-word">not recommended</span> for children <span class="stress-word">under six</span> years of age.</div>
+    <div class="phrase-context">→ Paediatric cold medicine refusal</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">26</div>
+    <div class="phrase-text">The <span class="stress-word">good news</span> is there are some <span class="stress-word">safe alternatives</span> I can suggest.</div>
+    <div class="phrase-context">→ Always offer an alternative after refusing</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section-label">6. Key Clinical Instructions</div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">27</div>
+    <div class="phrase-text"><span class="stress-word">Finish</span> all the tablets, even if you start to feel <span class="stress-word">better</span> before the course is done.</div>
+    <div class="phrase-context">→ Antibiotics — completing the full course</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">28</div>
+    <div class="phrase-text">Take it <span class="stress-word">every day</span>, at the <span class="stress-word">same time</span>, even when you feel <span class="stress-word">well</span>.</div>
+    <div class="phrase-context">→ Long-term medications — statins, lithium, warfarin</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">29</div>
+    <div class="phrase-text">Take it <span class="stress-word">before</span> you eat anything — on an <span class="stress-word">empty stomach</span> — with a full glass of <span class="stress-word">water</span>.</div>
+    <div class="phrase-context">→ Alendronate / ferrous sulfate fasting instructions</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">30</div>
+    <div class="phrase-text">Stay <span class="stress-word">upright</span> — sitting or standing — for at least <span class="stress-word">30 minutes</span> after taking it.</div>
+    <div class="phrase-context">→ Alendronate — essential posture instruction</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">31</div>
+    <div class="phrase-text">Try to leave at least <span class="stress-word">an hour</span> between this tablet and your cup of tea, coffee, or dairy products.</div>
+    <div class="phrase-context">→ Ferrous sulfate absorption — tea/coffee interference</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">32</div>
+    <div class="phrase-text">Take it with a <span class="stress-word">meal</span> or a <span class="stress-word">snack</span> to protect your stomach.</div>
+    <div class="phrase-context">→ Metformin, antibiotics, ferrous sulfate if causing nausea</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">33</div>
+    <div class="phrase-text">The key is to keep your intake <span class="stress-word">consistent</span> — not too much, not too little.</div>
+    <div class="phrase-context">→ Warfarin + vitamin K foods / lithium + salt intake</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">34</div>
+    <div class="phrase-text">Please <span class="stress-word">don't stop</span> it without speaking to your <span class="stress-word">GP</span> first.</div>
+    <div class="phrase-context">→ Rifampicin, methotrexate, lithium — never stop suddenly</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">35</div>
+    <div class="phrase-text"><span class="stress-word">Always</span> tell any doctor, dentist, or nurse that you <span class="stress-word">take</span> this medication before starting anything new.</div>
+    <div class="phrase-context">→ Methotrexate, warfarin, lithium — inform all prescribers</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section-label">7. Side Effect Counselling</div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">36</div>
+    <div class="phrase-text">If you notice any <span class="stress-word">muscle pain</span> or <span class="stress-word">weakness</span>, stop taking it and see your GP <span class="stress-word">straight away</span>.</div>
+    <div class="phrase-context">→ Statins — most important side effect warning</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">37</div>
+    <div class="phrase-text">If your <span class="stress-word">skin</span> or <span class="stress-word">eyes</span> turn yellow, see a doctor <span class="stress-word">immediately</span> — this can indicate a liver problem.</div>
+    <div class="phrase-context">→ Statins / liver warning sign (jaundice)</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">38</div>
+    <div class="phrase-text">These side effects usually <span class="stress-word">settle</span> within two to four weeks — they're very common at the <span class="stress-word">start</span>.</div>
+    <div class="phrase-context">→ Metformin, antibiotics — reassuring about initial side effects</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">39</div>
+    <div class="phrase-text">Please don't <span class="stress-word">worry</span> — dark stools are <span class="stress-word">completely normal</span> and harmless with iron tablets.</div>
+    <div class="phrase-context">→ Ferrous sulfate — reassuring about dark stools</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">40</div>
+    <div class="phrase-text">If you develop a <span class="stress-word">rash</span>, <span class="stress-word">swelling</span>, or any <span class="stress-word">difficulty breathing</span>, get emergency help <span class="stress-word">immediately</span>.</div>
+    <div class="phrase-context">→ Allergy warning — amoxicillin, EpiPen, anaphylaxis</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="section-label">8. Lifestyle Advice</div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">41</div>
+    <div class="phrase-text">The medication works <span class="stress-word">best</span> alongside <span class="stress-word">lifestyle changes</span> — not instead of them.</div>
+    <div class="phrase-context">→ Statins, metformin, smoking cessation</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">42</div>
+    <div class="phrase-text">Try to <span class="stress-word">drink plenty of water</span> throughout the day — dehydration is a very common trigger.</div>
+    <div class="phrase-context">→ Headache, halitosis, ferrous sulfate, diabetes</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">43</div>
+    <div class="phrase-text">Cravings usually only last <span class="stress-word">three to five minutes</span> — if you can distract yourself, it <span class="stress-word">passes</span>.</div>
+    <div class="phrase-context">→ Smoking cessation — managing cravings</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">44</div>
+    <div class="phrase-text">Try to <span class="stress-word">avoid</span> your triggers — especially <span class="stress-word">alcohol</span> in the first few weeks.</div>
+    <div class="phrase-context">→ Smoking cessation / headache management</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="section-label">9. Referring & Following Up</div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">45</div>
+    <div class="phrase-text">This really <span class="stress-word">needs</span> to be seen by a doctor — I'd <span class="stress-word">strongly recommend</span> booking an appointment today.</div>
+    <div class="phrase-context">→ Halitosis, rebound headache, any persistent symptom</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">46</div>
+    <div class="phrase-text">Your <span class="stress-word">GP</span> can prescribe stronger options with a <span class="stress-word">higher success rate</span> — it would be worth discussing.</div>
+    <div class="phrase-context">→ Smoking cessation — varenicline / bupropion</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">47</div>
+    <div class="phrase-text">You'll need <span class="stress-word">regular blood tests</span> to check your levels — these are <span class="stress-word">essential</span>, not optional.</div>
+    <div class="phrase-context">→ Warfarin (INR), lithium, methotrexate, metformin (HbA1c)</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="section-label">10. Closing the Consultation</div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">48</div>
+    <div class="phrase-text">I'm <span class="stress-word">really glad</span> to hear that. You've made the <span class="stress-word">right</span> decision.</div>
+    <div class="phrase-context">→ When patient agrees to follow advice</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">49</div>
+    <div class="phrase-text">Do you have any <span class="stress-word">other</span> questions before you <span class="stress-word">go</span>?</div>
+    <div class="phrase-context">→ Standard closing — always ask before ending</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="phrase-card" onclick="toggleDone(this)">
+    <div class="phrase-num">50</div>
+    <div class="phrase-text">Please <span class="stress-word">don't hesitate</span> to come back if you have any <span class="stress-word">concerns</span> — we're <span class="stress-word">always</span> here.</div>
+    <div class="phrase-context">→ Warm natural closing — every roleplay</div>
+    <span class="check-icon">✅</span>
+  </div>
+
+  <div class="complete-banner" id="completeBanner">
+    <h2>🎉 Morning Routine Complete!</h2>
+    <p>All 50 phrases done. You're ready for today's OET practice. 화이팅, Derek! 💪</p>
+  </div>
+
+  <button class="reset-btn" onclick="resetAll()">↺ Reset — Start Again Tomorrow</button>
+
+</div>
+
+<script>
+  let doneCount = 0;
+  const total = 50;
+
+  function toggleDone(card) {
+    const wasDone = card.classList.contains('done');
+    if (wasDone) {
+      card.classList.remove('done');
+      doneCount--;
+    } else {
+      card.classList.add('done');
+      doneCount++;
+    }
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const pct = (doneCount / total) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressCount').textContent = doneCount + ' / ' + total;
+    if (doneCount === total) {
+      document.getElementById('completeBanner').style.display = 'block';
+      document.getElementById('completeBanner').scrollIntoView({ behavior: 'smooth' });
+    } else {
+      document.getElementById('completeBanner').style.display = 'none';
+    }
+  }
+
+  function resetAll() {
+    document.querySelectorAll('.phrase-card').forEach(c => c.classList.remove('done'));
+    doneCount = 0;
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
