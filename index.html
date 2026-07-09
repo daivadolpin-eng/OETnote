@@ -12,27 +12,26 @@
   }
   body.dark {
     --bg: #1a1d23; --card: #23272f; --text: #e0e4ef; --muted: #9aa3b8;
-    --accent: #5b9cf6; --accent2: #aec6ef; --border: #3a3f4b;
-    --shadow: rgba(0,0,0,0.3); --good: #5ecb8a; --warn: #f0a050;
+    --accent: #5b9cf6; --accent2: #12151c; --border: #3a3f4b;
+    --shadow: rgba(0,0,0,0.3);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); transition: background 0.3s, color 0.3s; min-height: 100vh; }
 
   header {
-    background: var(--accent2); color: #fff; padding: 32px 40px 28px;
+    background: var(--accent2); color: #fff; padding: 28px 40px;
     display: flex; justify-content: space-between; align-items: center;
   }
-  header .title h1 { font-size: 26px; font-weight: 700; }
-  header .title p { font-size: 14px; color: #aec6ef; margin-top: 4px; }
-
+  header h1 { font-size: 24px; font-weight: 700; }
+  header p { font-size: 13px; color: #aec6ef; margin-top: 4px; }
   .toggle-btn {
     background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
     color: #fff; padding: 8px 16px; border-radius: 20px; cursor: pointer;
-    font-size: 13px; transition: background 0.2s;
+    font-size: 13px; transition: background 0.2s; white-space: nowrap;
   }
   .toggle-btn:hover { background: rgba(255,255,255,0.25); }
 
-  .main { max-width: 900px; margin: 40px auto; padding: 0 24px 80px; }
+  .main { max-width: 960px; margin: 36px auto; padding: 0 24px 80px; }
 
   .section-label {
     font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px;
@@ -43,42 +42,42 @@
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
 
   .card {
-    background: var(--card); border-radius: 12px; padding: 22px 24px;
+    background: var(--card); border-radius: 12px; padding: 20px 22px;
     box-shadow: 0 1px 4px var(--shadow); border: 1px solid var(--border);
     text-decoration: none; color: var(--text);
     transition: transform 0.15s, box-shadow 0.15s;
-    display: flex; flex-direction: column; gap: 8px;
+    display: flex; flex-direction: column; gap: 6px;
   }
   .card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px var(--shadow); }
-
-  .card-icon { font-size: 28px; }
-  .card-title { font-size: 16px; font-weight: 700; color: var(--accent); }
-  .card-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .card-icon { font-size: 26px; }
+  .card-title { font-size: 15px; font-weight: 700; color: var(--accent); }
+  .card-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
   .card-tag {
     display: inline-block; font-size: 11px; font-weight: 700;
     padding: 3px 10px; border-radius: 20px; margin-top: 4px; width: fit-content;
   }
-  .tag-ready { background: #e6f9ee; color: #27AE60; }
+  .tag-ready  { background: #e6f9ee; color: #27AE60; }
   .tag-coming { background: #fef3e2; color: #e67e22; }
-  .tag-external { background: #eef2ff; color: #2E4F8A; }
+  .tag-ext    { background: #eef2ff; color: #2E4F8A; }
 
   .coming-soon {
-    background: var(--card); border-radius: 12px; padding: 22px 24px;
+    background: var(--card); border-radius: 12px; padding: 20px 22px;
     border: 2px dashed var(--border); color: var(--muted);
-    display: flex; flex-direction: column; gap: 8px; opacity: 0.7;
+    display: flex; flex-direction: column; gap: 6px; opacity: 0.65;
   }
   .coming-soon .card-title { color: var(--muted); }
 
-  .progress-bar-wrap { margin-top: 6px; }
-  .progress-label { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
-  .progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
-  .progress-fill { height: 100%; border-radius: 3px; background: var(--accent); transition: width 0.5s; }
+  .progress-wrap { background: var(--card); border-radius: 12px; padding: 20px 24px; border: 1px solid var(--border); }
+  .prog-row { margin-top: 12px; }
+  .prog-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .prog-bar { height: 7px; background: var(--border); border-radius: 4px; overflow: hidden; }
+  .prog-fill { height: 100%; border-radius: 4px; background: var(--accent); }
 
   footer { text-align: center; color: var(--muted); font-size: 12px; padding: 24px; }
 
   @media (max-width: 600px) {
-    header { flex-direction: column; gap: 16px; text-align: center; }
-    .main { padding: 0 16px 60px; }
+    header { flex-direction: column; gap: 12px; text-align: center; padding: 20px; }
+    .main { padding: 0 14px 60px; }
     .grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -86,7 +85,7 @@
 <body>
 
 <header>
-  <div class="title">
+  <div>
     <h1>📚 OET Study Hub</h1>
     <p>Derek's OET Preparation Materials — Pharmacy</p>
   </div>
@@ -95,15 +94,15 @@
 
 <div class="main">
 
-  <div class="section-label">📝 Writing Sub-test</div>
+  <!-- WRITING -->
+  <div class="section-label">✍️ Writing Sub-test</div>
   <div class="grid">
     <a class="card" href="OET_Writing_Key_Study_Notes.html">
-      <div class="card-icon">✍️</div>
+      <div class="card-icon">📝</div>
       <div class="card-title">Writing Key Study Notes</div>
       <div class="card-desc">Grammar errors, letter layout, linking words, clinical accuracy, vocabulary bank, injection technique, and ready-to-use phrases.</div>
       <span class="card-tag tag-ready">✅ Ready</span>
     </a>
-
     <div class="coming-soon">
       <div class="card-icon">📄</div>
       <div class="card-title">Writing Practice Scenarios</div>
@@ -112,15 +111,21 @@
     </div>
   </div>
 
+  <!-- SPEAKING -->
   <div class="section-label">🎤 Speaking Sub-test</div>
   <div class="grid">
+    <a class="card" href="OET_Morning_Routine_Derek.html">
+      <div class="card-icon">☀️</div>
+      <div class="card-title">OET Morning Routine</div>
+      <div class="card-desc">Daily key phrases and speaking warm-up routine.</div>
+      <span class="card-tag tag-ready">✅ Ready</span>
+    </a>
     <div class="coming-soon">
       <div class="card-icon">🗣️</div>
       <div class="card-title">Speaking Master Study Guide</div>
       <div class="card-desc">Pronunciation bank, OET phrase bank, grammar error table, plain language table, score tracker.</div>
       <span class="card-tag tag-coming">🔜 Upload to add link</span>
     </div>
-
     <div class="coming-soon">
       <div class="card-icon">🎭</div>
       <div class="card-title">Roleplay Scenario Cards</div>
@@ -129,75 +134,83 @@
     </div>
   </div>
 
-  <div class="section-label">📖 Vocabulary</div>
+  <!-- VOCABULARY & PRONUNCIATION -->
+  <div class="section-label">📖 Vocabulary & Pronunciation Banks</div>
   <div class="grid">
-    <div class="coming-soon">
+    <a class="card" href="OET_Vocab_MASTER.html">
+      <div class="card-icon">🗂️</div>
+      <div class="card-title">OET Vocab Master</div>
+      <div class="card-desc">472 clinical vocabulary entries across 12 categories — searchable, filterable, with definitions and example sentences.</div>
+      <span class="card-tag tag-ready">✅ 472 entries</span>
+    </a>
+    <a class="card" href="Pronunciation_Bank_VOCAB.html">
       <div class="card-icon">💊</div>
-      <div class="card-title">OET Clinical Vocabulary</div>
-      <div class="card-desc">OET-specific clinical terms with pronunciation notes.</div>
-      <span class="card-tag tag-coming">🔜 Coming soon</span>
-    </div>
-
-    <div class="coming-soon">
+      <div class="card-title">OET Vocabulary Pronunciation Bank</div>
+      <div class="card-desc">Clinical OET terms with pronunciation notes and Derek-specific error tracking.</div>
+      <span class="card-tag tag-ready">✅ Ready</span>
+    </a>
+    <a class="card" href="Pronunciation_Bank_COLLOQUIAL.html">
       <div class="card-icon">💬</div>
-      <div class="card-title">Colloquial Patient Language</div>
-      <div class="card-desc">Plain English alternatives to medical terminology.</div>
-      <span class="card-tag tag-coming">🔜 Coming soon</span>
-    </div>
-
-    <div class="coming-soon">
+      <div class="card-title">Colloquial Expression Bank</div>
+      <div class="card-desc">Plain English patient language and colloquial expressions with pronunciation.</div>
+      <span class="card-tag tag-ready">✅ Ready</span>
+    </a>
+    <a class="card" href="Greg_Tutoring_Pronunciation_Bank__1_.html">
       <div class="card-icon">🎓</div>
-      <div class="card-title">Greg Tutoring Notes</div>
-      <div class="card-desc">Pronunciation and vocabulary from Greg's sessions.</div>
-      <span class="card-tag tag-coming">🔜 Coming soon</span>
-    </div>
+      <div class="card-title">Greg Tutoring Pronunciation Bank</div>
+      <div class="card-desc">Vocabulary and pronunciation from Greg's tutoring sessions.</div>
+      <span class="card-tag tag-ready">✅ Ready</span>
+    </a>
+    <a class="card" href="MBA_Pronunciation_Bank.html">
+      <div class="card-icon">📊</div>
+      <div class="card-title">MBA Vocabulary Bank</div>
+      <div class="card-desc">MBA and business vocabulary with pronunciation guidance.</div>
+      <span class="card-tag tag-ready">✅ Ready</span>
+    </a>
   </div>
 
+  <!-- EXTERNAL LINKS -->
   <div class="section-label">🔗 Useful External Links</div>
   <div class="grid">
     <a class="card" href="https://www.oet.com" target="_blank">
       <div class="card-icon">🌐</div>
       <div class="card-title">OET Official Website</div>
       <div class="card-desc">Official OET resources, sample tests, and registration.</div>
-      <span class="card-tag tag-external">↗ oet.com</span>
+      <span class="card-tag tag-ext">↗ oet.com</span>
     </a>
-
     <a class="card" href="https://www.oet.com/test-takers/pharmacy/" target="_blank">
       <div class="card-icon">💉</div>
       <div class="card-title">OET Pharmacy Page</div>
       <div class="card-desc">Pharmacy-specific OET information, sample materials, and marking criteria.</div>
-      <span class="card-tag tag-external">↗ oet.com/pharmacy</span>
+      <span class="card-tag tag-ext">↗ oet.com/pharmacy</span>
     </a>
   </div>
 
+  <!-- PROGRESS -->
   <div class="section-label">📊 Exam Progress</div>
-  <div class="card" style="cursor:default;">
-    <div class="card-title">Target: Grade B Overall</div>
-    <div class="card-desc" style="margin-top:4px;">Track your progress across sub-tests</div>
-    <br>
-    <div class="progress-bar-wrap">
-      <div class="progress-label">Writing — Practice ongoing</div>
-      <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+  <div class="progress-wrap">
+    <div style="font-size:15px; font-weight:700; color:var(--accent);">Target: Grade B Overall</div>
+    <div class="prog-row">
+      <div class="prog-label">Writing — Practice ongoing</div>
+      <div class="prog-bar"><div class="prog-fill" style="width:70%"></div></div>
     </div>
-    <div class="progress-bar-wrap" style="margin-top:10px;">
-      <div class="progress-label">Speaking — Primary focus</div>
-      <div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div>
+    <div class="prog-row">
+      <div class="prog-label">Speaking — Primary focus</div>
+      <div class="prog-bar"><div class="prog-fill" style="width:55%"></div></div>
     </div>
-    <div class="progress-bar-wrap" style="margin-top:10px;">
-      <div class="progress-label">Reading</div>
-      <div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
+    <div class="prog-row">
+      <div class="prog-label">Reading</div>
+      <div class="prog-bar"><div class="prog-fill" style="width:65%"></div></div>
     </div>
-    <div class="progress-bar-wrap" style="margin-top:10px;">
-      <div class="progress-label">Listening</div>
-      <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+    <div class="prog-row">
+      <div class="prog-label">Listening</div>
+      <div class="prog-bar"><div class="prog-fill" style="width:60%"></div></div>
     </div>
   </div>
 
 </div>
 
-<footer>
-  OET Study Hub · Derek · Last updated June 2026
-</footer>
+<footer>OET Study Hub · Derek · Last updated June 2026</footer>
 
 <script>
   function toggleDark() {
