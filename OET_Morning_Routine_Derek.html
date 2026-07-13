@@ -105,6 +105,18 @@
   }
   .phrase-card.done .phrase-context { color: #2a6a2a; }
 
+  .phrase-stress {
+    font-family: monospace;
+    font-size: 12px;
+    color: #b8d870;
+    background: #1e2010;
+    border-left: 3px solid #8ab840;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-top: 4px;
+    letter-spacing: 0.03em;
+    display: block;
+  }
   .check-icon {
     position: absolute;
     right: 14px;
@@ -114,7 +126,19 @@
     opacity: 0;
     transition: opacity 0.2s;
   }
-  .phrase-card.done .check-icon { opacity: 1; }
+  .phrase-card.done .phrase-stress {
+    font-family: monospace;
+    font-size: 12px;
+    color: #b8d870;
+    background: #1e2010;
+    border-left: 3px solid #8ab840;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-top: 4px;
+    letter-spacing: 0.03em;
+    display: block;
+  }
+  .check-icon { opacity: 1; }
 
   .stress-word {
     font-weight: 900;
@@ -187,6 +211,7 @@
     <div class="phrase-num">01</div>
     <div class="phrase-text">Hello, I'm the <span class="stress-word">pharmacist</span> on duty today. How can I <span class="stress-word">help</span> you?</div>
     <div class="phrase-context">→ Standard confident opening</div>
+    <div class="phrase-stress">hel-LO · i'm the FAR-muh-sist · on DU-ty to-DAY ↘ · how can i HELP you ↗</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -194,6 +219,7 @@
     <div class="phrase-num">02</div>
     <div class="phrase-text">Before I explain, <span class="stress-word">could I ask</span> you a few questions first?</div>
     <div class="phrase-context">→ Always gather information before giving advice</div>
+    <div class="phrase-stress">be-FORE i ex-PLAIN ↘ · COULD i ASK you · a FEW QUES-tions FIRST ↗</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -201,6 +227,7 @@
     <div class="phrase-num">03</div>
     <div class="phrase-text">I'm <span class="stress-word">really glad</span> you asked about this — it's a very important question.</div>
     <div class="phrase-context">→ Encouraging the patient to ask</div>
+    <div class="phrase-stress">i'm REA-lly GLAD · you ASKED a-BOUT this ↘ · it's a VER-y im-POR-tant QUES-tion ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -208,6 +235,7 @@
     <div class="phrase-num">04</div>
     <div class="phrase-text">Are you taking any other <span class="stress-word">medications</span> or have any other <span class="stress-word">health conditions</span>?</div>
     <div class="phrase-context">→ Essential history-taking question</div>
+    <div class="phrase-stress">are you TAK-ing · a-NY OTH-er · med-ih-KAY-shuns ↗ · or have a-NY OTH-er · HEALTH con-DI-shuns ↗</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -218,6 +246,7 @@
     <div class="phrase-num">05</div>
     <div class="phrase-text">I <span class="stress-word">completely understand</span> your concern about that.</div>
     <div class="phrase-context">→ Use whenever a patient expresses worry</div>
+    <div class="phrase-stress">i · COM-plete-ly un-der-STAND · your con-CERN · a-BOUT that ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -225,6 +254,7 @@
     <div class="phrase-num">06</div>
     <div class="phrase-text">I can <span class="stress-word">see</span> why that would be <span class="stress-word">worrying</span> for you — that's actually a very <span class="stress-word">common</span> concern.</div>
     <div class="phrase-context">→ Validating + normalising patient anxiety</div>
+    <div class="phrase-stress">i can SEE · why that would be WOR-ry-ing · for YOU ↘ · that's AC-tually · a VER-y COM-mon con-CERN ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -232,6 +262,7 @@
     <div class="phrase-num">07</div>
     <div class="phrase-text">A new <span class="stress-word">diagnosis</span> is a lot to take in — it's <span class="stress-word">completely natural</span> to feel worried.</div>
     <div class="phrase-context">→ For newly diagnosed patients (diabetes, osteoporosis, etc.)</div>
+    <div class="phrase-stress">a NEW · di-ag-NO-sis · is a LOT · to take IN ↘ · it's com-PLETE-ly NA-tu-ral · to feel WOR-ried ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -239,6 +270,7 @@
     <div class="phrase-num">08</div>
     <div class="phrase-text">I <span class="stress-word">understand</span> you feel well right now — but the <span class="stress-word">danger</span> is still very real.</div>
     <div class="phrase-context">→ When patient is asymptomatic but at risk (lithium, St John's Wort)</div>
+    <div class="phrase-stress">i un-der-STAND · you feel WELL · right NOW ↘ · but the DAN-ger · is STILL · very REAL ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -246,6 +278,7 @@
     <div class="phrase-num">09</div>
     <div class="phrase-text">I can hear that you're finding this <span class="stress-word">difficult to accept</span> — and that's <span class="stress-word">completely understandable</span>.</div>
     <div class="phrase-context">→ Emotional resistance — patient reluctant to accept diagnosis or medication</div>
+    <div class="phrase-stress">i can HEAR · that you're find-ing this · DIF-fi-cult to ac-CEPT ↘ · and THAT'S · com-PLETE-ly un-der-STAND-a-ble ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -253,6 +286,7 @@
     <div class="phrase-num">10</div>
     <div class="phrase-text">I <span class="stress-word">completely understand</span> how worried you must be — it's very hard to see your little one <span class="stress-word">unwell</span>.</div>
     <div class="phrase-context">→ Paediatric scenarios — always empathise with the parent first</div>
+    <div class="phrase-stress">i COM-plete-ly un-der-STAND · how WOR-ried · you must BE ↘ · it's VER-y HARD · to see your LIT-tle one · un-WELL ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -263,6 +297,7 @@
     <div class="phrase-num">11</div>
     <div class="phrase-text">Let me <span class="stress-word">reassure</span> you about that — let me <span class="stress-word">explain</span>.</div>
     <div class="phrase-context">→ Before correcting a misconception</div>
+    <div class="phrase-stress">let me re-AS-sure you · a-BOUT that ↘ · let me ex-PLAIN ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -270,6 +305,7 @@
     <div class="phrase-num">12</div>
     <div class="phrase-text">Let me address your concerns <span class="stress-word">one by one</span>.</div>
     <div class="phrase-context">→ When patient has multiple questions — structure your answer</div>
+    <div class="phrase-stress">let me ad-DRESS · your con-CERNS · ONE by ONE ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -277,6 +313,7 @@
     <div class="phrase-num">13</div>
     <div class="phrase-text">I'll explain this <span class="stress-word">step by step</span> so you feel <span class="stress-word">confident</span>.</div>
     <div class="phrase-context">→ Device instruction (EpiPen, patch, inhaler)</div>
+    <div class="phrase-stress">i'll ex-PLAIN this · STEP by STEP ↘ · so YOU feel · CON-fi-dent ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -284,6 +321,7 @@
     <div class="phrase-num">14</div>
     <div class="phrase-text">Just because something is <span class="stress-word">natural</span> or <span class="stress-word">herbal</span> doesn't mean it's <span class="stress-word">safe</span>.</div>
     <div class="phrase-context">→ St John's Wort / herbal supplement misconception</div>
+    <div class="phrase-stress">JUST be-cause · some-thing is NAT-u-ral · or HER-bal ↘ · does-n't MEAN · it's SAFE ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -291,6 +329,7 @@
     <div class="phrase-num">15</div>
     <div class="phrase-text">The evidence for that is actually very <span class="stress-word">limited</span> — the <span class="stress-word">benefits</span> of this medication far <span class="stress-word">outweigh</span> that risk.</div>
     <div class="phrase-context">→ Memory loss from statins / rare side effect concerns</div>
+    <div class="phrase-stress">the EV-i-dence · for THAT · is AC-tually · VER-y LIM-it-ed ↘ · the BEN-e-fits · of this med-ih-KAY-shun · FAR out-WEIGH · that RISK ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -298,6 +337,7 @@
     <div class="phrase-num">16</div>
     <div class="phrase-text">Does that <span class="stress-word">make sense</span>? / Does that <span class="stress-word">help</span> to explain it?</div>
     <div class="phrase-context">→ After every major explanation — check understanding</div>
+    <div class="phrase-stress">does THAT · make SENSE ↗ · does that HELP · to ex-PLAIN it ↗</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -308,6 +348,7 @@
     <div class="phrase-num">17</div>
     <div class="phrase-text">This is <span class="stress-word">actually very important</span> — please <span class="stress-word">listen carefully</span>.</div>
     <div class="phrase-context">→ Before any serious drug interaction or safety warning</div>
+    <div class="phrase-stress">THIS is · AC-tually · VER-y im-POR-tant ↘ · please LIS-ten · CARE-ful-ly ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -315,6 +356,7 @@
     <div class="phrase-num">18</div>
     <div class="phrase-text">I need to talk to you about <span class="stress-word">a few things urgently</span>.</div>
     <div class="phrase-context">→ When there are multiple simultaneous safety issues</div>
+    <div class="phrase-stress">i NEED · to TALK to you · a-BOUT · a FEW things · UR-gent-ly ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -322,6 +364,7 @@
     <div class="phrase-num">19</div>
     <div class="phrase-text"><span class="stress-word">Stop</span> taking it <span class="stress-word">straight away</span> and use <span class="stress-word">paracetamol</span> instead.</div>
     <div class="phrase-context">→ Ibuprofen + methotrexate / lithium / any NSAID interaction</div>
+    <div class="phrase-stress">STOP · tak-ing it · STRAIGHT a-WAY ↘ · and USE · pa-ra-SEE-ta-mol · in-STEAD ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -329,6 +372,7 @@
     <div class="phrase-num">20</div>
     <div class="phrase-text">Together, these things <span class="stress-word">significantly increase</span> your risk — this needs <span class="stress-word">urgent</span> medical attention.</div>
     <div class="phrase-context">→ Multiple compounding risk factors (methotrexate triple risk, lithium)</div>
+    <div class="phrase-stress">to-GETH-er · THESE things · sig-NIF-ih-cant-ly in-CREASE · your RISK ↘ · this NEEDS · UR-gent · MED-ih-cal a-TEN-shun ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -336,6 +380,7 @@
     <div class="phrase-num">21</div>
     <div class="phrase-text">If you notice <span class="stress-word">any</span> of these symptoms, <span class="stress-word">go straight</span> to the emergency room — <span class="stress-word">do not wait</span>.</div>
     <div class="phrase-context">→ Toxicity warning signs — methotrexate, lithium, anaphylaxis</div>
+    <div class="phrase-stress">if you NO-tice · A-ny · of THESE symp-toms ↘ · GO STRAIGHT · to the e-MUR-jen-see ROOM ↘ · DO not WAIT ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -343,6 +388,7 @@
     <div class="phrase-num">22</div>
     <div class="phrase-text">Please <span class="stress-word">contact your GP today</span> — not next week, <span class="stress-word">today</span>.</div>
     <div class="phrase-context">→ Same-day escalation required</div>
+    <div class="phrase-stress">please CON-tact · your GP · to-DAY ↘ · not NEXT week ↘ · to-DAY ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -350,6 +396,7 @@
     <div class="phrase-num">23</div>
     <div class="phrase-text">By the time you <span class="stress-word">feel unwell</span>, the levels can already be <span class="stress-word">dangerously high</span>.</div>
     <div class="phrase-context">→ Lithium toxicity — patient downplaying risk</div>
+    <div class="phrase-stress">by the TIME · you FEEL un-well ↗ · the LEV-els · can AL-ready be · DAN-ger-ous-ly HIGH ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -360,6 +407,7 @@
     <div class="phrase-num">24</div>
     <div class="phrase-text">I'm <span class="stress-word">afraid</span> I'm not able to recommend that — I know that's <span class="stress-word">not what you were hoping</span> to hear.</div>
     <div class="phrase-context">→ Refusing OTC request (paediatric cold medicine, halitosis products)</div>
+    <div class="phrase-stress">i'm a-FRAID · i'm not A-ble · to rec-uh-MEND that ↘ · i KNOW that's · NOT what you were HOP-ing · to HEAR ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -367,6 +415,7 @@
     <div class="phrase-num">25</div>
     <div class="phrase-text">These medicines are <span class="stress-word">not recommended</span> for children <span class="stress-word">under six</span> years of age.</div>
     <div class="phrase-context">→ Paediatric cold medicine refusal</div>
+    <div class="phrase-stress">THESE med-ih-sins · are NOT rec-uh-MEND-ed ↘ · for CHIL-dren · UN-der SIX · years of AGE ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -374,6 +423,7 @@
     <div class="phrase-num">26</div>
     <div class="phrase-text">The <span class="stress-word">good news</span> is there are some <span class="stress-word">safe alternatives</span> I can suggest.</div>
     <div class="phrase-context">→ Always offer an alternative after refusing</div>
+    <div class="phrase-stress">the GOOD NEWS · is there ARE · some SAFE al-TER-na-tivs ↗ · i can sug-GEST ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -384,6 +434,7 @@
     <div class="phrase-num">27</div>
     <div class="phrase-text"><span class="stress-word">Finish</span> all the tablets, even if you start to feel <span class="stress-word">better</span> before the course is done.</div>
     <div class="phrase-context">→ Antibiotics — completing the full course</div>
+    <div class="phrase-stress">FIN-ish · ALL the TAB-lets ↘ · EV-en if · you START · to feel BET-ter · be-FORE · the COURSE is DONE ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -391,6 +442,7 @@
     <div class="phrase-num">28</div>
     <div class="phrase-text">Take it <span class="stress-word">every day</span>, at the <span class="stress-word">same time</span>, even when you feel <span class="stress-word">well</span>.</div>
     <div class="phrase-context">→ Long-term medications — statins, lithium, warfarin</div>
+    <div class="phrase-stress">take it · EV-ery DAY ↘ · at the SAME TIME ↘ · EV-en when · you feel WELL ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -398,6 +450,7 @@
     <div class="phrase-num">29</div>
     <div class="phrase-text">Take it <span class="stress-word">before</span> you eat anything — on an <span class="stress-word">empty stomach</span> — with a full glass of <span class="stress-word">water</span>.</div>
     <div class="phrase-context">→ Alendronate / ferrous sulfate fasting instructions</div>
+    <div class="phrase-stress">take it be-FORE · you EAT a-ny-thing ↘ · on an EMP-ty STOM-ach ↘ · with a FULL GLASS · of WAT-er ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -405,6 +458,7 @@
     <div class="phrase-num">30</div>
     <div class="phrase-text">Stay <span class="stress-word">upright</span> — sitting or standing — for at least <span class="stress-word">30 minutes</span> after taking it.</div>
     <div class="phrase-context">→ Alendronate — essential posture instruction</div>
+    <div class="phrase-stress">STAY up-RIGHT ↘ · SIT-ting or STAND-ing ↘ · for at LEAST · THIR-ty MIN-utes · af-ter TAK-ing it ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -412,6 +466,7 @@
     <div class="phrase-num">31</div>
     <div class="phrase-text">Try to leave at least <span class="stress-word">an hour</span> between this tablet and your cup of tea, coffee, or dairy products.</div>
     <div class="phrase-context">→ Ferrous sulfate absorption — tea/coffee interference</div>
+    <div class="phrase-stress">try to LEAVE · at LEAST an HOUR ↘ · be-TWEEN this TAB-let · and your cup of TEA ↘ · COF-fee · or DAIR-y PROD-ucts ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -419,6 +474,7 @@
     <div class="phrase-num">32</div>
     <div class="phrase-text">Take it with a <span class="stress-word">meal</span> or a <span class="stress-word">snack</span> to protect your stomach.</div>
     <div class="phrase-context">→ Metformin, antibiotics, ferrous sulfate if causing nausea</div>
+    <div class="phrase-stress">take it WITH · a MEAL ↘ · or a SNACK ↘ · to pro-TECT · your STOM-ach ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -426,6 +482,7 @@
     <div class="phrase-num">33</div>
     <div class="phrase-text">The key is to keep your intake <span class="stress-word">consistent</span> — not too much, not too little.</div>
     <div class="phrase-context">→ Warfarin + vitamin K foods / lithium + salt intake</div>
+    <div class="phrase-stress">the KEY · is to keep · your IN-take · con-SIS-tent ↘ · not TOO MUCH ↘ · not TOO LIT-tle ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -433,6 +490,7 @@
     <div class="phrase-num">34</div>
     <div class="phrase-text">Please <span class="stress-word">don't stop</span> it without speaking to your <span class="stress-word">GP</span> first.</div>
     <div class="phrase-context">→ Rifampicin, methotrexate, lithium — never stop suddenly</div>
+    <div class="phrase-stress">please DON'T STOP it ↘ · with-OUT speak-ing · to your GP · FIRST ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -440,6 +498,7 @@
     <div class="phrase-num">35</div>
     <div class="phrase-text"><span class="stress-word">Always</span> tell any doctor, dentist, or nurse that you <span class="stress-word">take</span> this medication before starting anything new.</div>
     <div class="phrase-context">→ Methotrexate, warfarin, lithium — inform all prescribers</div>
+    <div class="phrase-stress">AL-ways TELL · a-ny DOC-tor · DEN-tist · or NURSE ↘ · that you TAKE this med-ih-KAY-shun · be-FORE start-ing · a-NY-thing NEW ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -450,6 +509,7 @@
     <div class="phrase-num">36</div>
     <div class="phrase-text">If you notice any <span class="stress-word">muscle pain</span> or <span class="stress-word">weakness</span>, stop taking it and see your GP <span class="stress-word">straight away</span>.</div>
     <div class="phrase-context">→ Statins — most important side effect warning</div>
+    <div class="phrase-stress">if you NO-tice · a-ny MUS-sel PAIN ↗ · or WEAK-ness ↘ · STOP tak-ing it · and SEE your GP · STRAIGHT a-WAY ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -457,6 +517,7 @@
     <div class="phrase-num">37</div>
     <div class="phrase-text">If your <span class="stress-word">skin</span> or <span class="stress-word">eyes</span> turn yellow, see a doctor <span class="stress-word">immediately</span> — this can indicate a liver problem.</div>
     <div class="phrase-context">→ Statins / liver warning sign (jaundice)</div>
+    <div class="phrase-stress">if your SKIN · or EYES · turn YEL-low ↗ · see a DOC-tor · im-MEE-di-ate-ly ↘ · this can in-DIH-kayt · a LIV-er PROB-lem ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -464,6 +525,7 @@
     <div class="phrase-num">38</div>
     <div class="phrase-text">These side effects usually <span class="stress-word">settle</span> within two to four weeks — they're very common at the <span class="stress-word">start</span>.</div>
     <div class="phrase-context">→ Metformin, antibiotics — reassuring about initial side effects</div>
+    <div class="phrase-stress">these SIDE ef-fects · u-zu-al-ly SET-ul ↘ · with-IN TWO to FOUR WEEKS ↘ · they're VER-y COM-mon · at the START ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -471,6 +533,7 @@
     <div class="phrase-num">39</div>
     <div class="phrase-text">Please don't <span class="stress-word">worry</span> — dark stools are <span class="stress-word">completely normal</span> and harmless with iron tablets.</div>
     <div class="phrase-context">→ Ferrous sulfate — reassuring about dark stools</div>
+    <div class="phrase-stress">please DON'T WOR-ry ↘ · dark STOOLS · are COM-plete-ly NOR-mal ↘ · and HARM-less · with I-urn TAB-lets ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -478,6 +541,7 @@
     <div class="phrase-num">40</div>
     <div class="phrase-text">If you develop a <span class="stress-word">rash</span>, <span class="stress-word">swelling</span>, or any <span class="stress-word">difficulty breathing</span>, get emergency help <span class="stress-word">immediately</span>.</div>
     <div class="phrase-context">→ Allergy warning — amoxicillin, EpiPen, anaphylaxis</div>
+    <div class="phrase-stress">if you de-VEL-op · a RASH ↗ · SWEL-ling ↗ · or a-ny DIF-fi-kul-ty BREETH-ing ↘ · get e-MUR-jen-cy HELP · im-MEE-di-ate-ly ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -488,6 +552,7 @@
     <div class="phrase-num">41</div>
     <div class="phrase-text">The medication works <span class="stress-word">best</span> alongside <span class="stress-word">lifestyle changes</span> — not instead of them.</div>
     <div class="phrase-context">→ Statins, metformin, smoking cessation</div>
+    <div class="phrase-stress">the med-ih-KAY-shun · works BEST ↘ · a-LONG-side LIFE-style CHANG-es ↘ · not in-STEAD of them ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -495,6 +560,7 @@
     <div class="phrase-num">42</div>
     <div class="phrase-text">Try to <span class="stress-word">drink plenty of water</span> throughout the day — dehydration is a very common trigger.</div>
     <div class="phrase-context">→ Headache, halitosis, ferrous sulfate, diabetes</div>
+    <div class="phrase-stress">try to DRINK · PLEN-ty of WAT-er ↘ · through-OUT the DAY ↘ · de-hy-DRAY-shun · is a VER-y COM-mon TRIG-er ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -502,6 +568,7 @@
     <div class="phrase-num">43</div>
     <div class="phrase-text">Cravings usually only last <span class="stress-word">three to five minutes</span> — if you can distract yourself, it <span class="stress-word">passes</span>.</div>
     <div class="phrase-context">→ Smoking cessation — managing cravings</div>
+    <div class="phrase-stress">CRAV-ings · u-zu-al-ly ON-ly LAST · THREE to FIVE MIN-utes ↘ · if you can dis-TRACT your-self ↗ · it PASS-es ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -509,6 +576,7 @@
     <div class="phrase-num">44</div>
     <div class="phrase-text">Try to <span class="stress-word">avoid</span> your triggers — especially <span class="stress-word">alcohol</span> in the first few weeks.</div>
     <div class="phrase-context">→ Smoking cessation / headache management</div>
+    <div class="phrase-stress">try to a-VOID · your TRIG-gers ↘ · es-PEC-ial-ly al-KO-hol ↘ · in the FIRST few WEEKS ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -519,6 +587,7 @@
     <div class="phrase-num">45</div>
     <div class="phrase-text">This really <span class="stress-word">needs</span> to be seen by a doctor — I'd <span class="stress-word">strongly recommend</span> booking an appointment today.</div>
     <div class="phrase-context">→ Halitosis, rebound headache, any persistent symptom</div>
+    <div class="phrase-stress">this REA-lly NEEDS · to be SEEN · by a DOC-tor ↘ · i'd STRONG-ly rec-uh-MEND · book-ing an a-POINT-ment · to-DAY ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -526,6 +595,7 @@
     <div class="phrase-num">46</div>
     <div class="phrase-text">Your <span class="stress-word">GP</span> can prescribe stronger options with a <span class="stress-word">higher success rate</span> — it would be worth discussing.</div>
     <div class="phrase-context">→ Smoking cessation — varenicline / bupropion</div>
+    <div class="phrase-stress">your GP · can pre-SCRIBE · STRONG-er OP-shuns ↘ · with a HY-er SUK-ses RATE ↘ · it would be WORTH · dis-KUS-ing ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -533,6 +603,7 @@
     <div class="phrase-num">47</div>
     <div class="phrase-text">You'll need <span class="stress-word">regular blood tests</span> to check your levels — these are <span class="stress-word">essential</span>, not optional.</div>
     <div class="phrase-context">→ Warfarin (INR), lithium, methotrexate, metformin (HbA1c)</div>
+    <div class="phrase-stress">you'll NEED · REG-u-lar BLOOD TESTS ↘ · to CHECK your LEV-els ↘ · THESE are es-SEN-shul ↘ · not OP-shun-ul ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -543,6 +614,7 @@
     <div class="phrase-num">48</div>
     <div class="phrase-text">I'm <span class="stress-word">really glad</span> to hear that. You've made the <span class="stress-word">right</span> decision.</div>
     <div class="phrase-context">→ When patient agrees to follow advice</div>
+    <div class="phrase-stress">i'm REA-lly GLAD · to HEAR that ↘ · you've MADE · the RIGHT de-SIH-zhun ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -550,6 +622,7 @@
     <div class="phrase-num">49</div>
     <div class="phrase-text">Do you have any <span class="stress-word">other</span> questions before you <span class="stress-word">go</span>?</div>
     <div class="phrase-context">→ Standard closing — always ask before ending</div>
+    <div class="phrase-stress">do you have · a-ny OTH-er QUES-tions ↗ · be-FORE you GO ↗</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -557,6 +630,7 @@
     <div class="phrase-num">50</div>
     <div class="phrase-text">Please <span class="stress-word">don't hesitate</span> to come back if you have any <span class="stress-word">concerns</span> — we're <span class="stress-word">always</span> here.</div>
     <div class="phrase-context">→ Warm natural closing — every roleplay</div>
+    <div class="phrase-stress">please DON'T HES-ih-tayt · to COME BACK ↘ · if you have · a-ny con-SURNZ ↘ · we're AL-ways HERE ↘</div</div>
     <span class="check-icon">✅</span>
   </div>
 
@@ -566,6 +640,282 @@
   </div>
 
   <button class="reset-btn" onclick="resetAll()">↺ Reset — Start Again Tomorrow</button>
+
+  <!-- ===== PRONUNCIATION BANK ===== -->
+  <div style="margin-top:40px; border-top:3px solid #c8a85a; padding-top:24px;">
+    <div style="text-align:center; margin-bottom:20px;">
+      <div style="font-size:20px; font-weight:700; color:#c8a85a; letter-spacing:1px;">🔊 OET Pronunciation Bank</div>
+      <div style="font-size:13px; color:#a0a8b8; margin-top:4px;">Read each word aloud — syllable by syllable — every morning</div>
+    </div>
+
+  <style>
+    .pron-batch { margin-bottom:10px; padding-bottom:8px; border-bottom:2px solid #c8a85a; color:#c8a85a; font-size:16px; font-weight:700; margin-top:28px; }
+    .word-card-oet { background:#242938; border-left:4px solid #2C5F8A; border-radius:6px; padding:16px 18px; margin-bottom:14px; }
+    .word-card-oet.high { border-left-color:#c0392b; }
+    .wt { font-size:19px; font-weight:700; color:#7ab8f5; margin-bottom:4px; letter-spacing:0.04em; }
+    .ws { font-size:15px; color:#c8a85a; font-weight:600; margin-bottom:4px; }
+    .ws .ss { text-decoration:underline; font-weight:800; color:#f0a050; }
+    .wipa { font-size:13px; color:#a0a8b8; background:#1a1f2e; display:inline-block; padding:2px 8px; border-radius:4px; margin-bottom:6px; font-family:monospace; }
+    .wpitch { background:rgba(44,95,138,0.2); border-left:3px solid #2C5F8A; padding:6px 10px; border-radius:4px; font-size:13px; color:#7ab8f5; margin-bottom:6px; }
+    .wnote { background:rgba(192,57,43,0.1); border-left:3px solid #c0392b; padding:6px 10px; border-radius:4px; font-size:13px; color:#e8c8c8; margin-bottom:6px; }
+    .wex { background:#1a1f2e; border:1px solid #343a50; border-radius:4px; padding:7px 10px; font-size:13px; color:#c8d0e0; margin-top:6px; font-style:italic; }
+    .wex .tw { color:#4ab84a; font-weight:700; font-style:normal; }
+    .wstress { background:#1e2010; border-left:3px solid #8ab840; padding:5px 10px; border-radius:4px; font-size:12px; color:#b8d870; font-family:monospace; margin-top:4px; letter-spacing:0.03em; }
+  </style>
+
+  <!-- BATCH 1 -->
+  <div class="pron-batch">📋 Batch 1 — Core Drug Names</div>
+
+  <div class="word-card-oet high">
+    <div class="wt">WARFARIN</div>
+    <div class="ws"><span class="ss">WOR</span>-fuh-rin <span style="font-size:12px;color:#a0a8b8;">3 syllables</span></div>
+    <div class="wipa">/ˈwɔːfərɪn/</div>
+    <div class="wpitch">🎵 Pitch: HIGH-low-low — peak on WOR. British RP: WOR = /wɔː/ (non-rhotic, long vowel). "-fuh" = schwa. "-rin" = short /ɪn/.</div>
+    <div class="wnote">⚠️ Derek's error: "Wolperine" / "water levels" ❌ — WOR-fuh-rin. Three clear syllables. Do NOT add extra syllables. "-farin" is never "-fearing".</div>
+    <div class="wex">Take your <span class="tw">warfarin</span> at the same time every evening — never miss a dose.</div>
+    <div class="wstress">take your · WAR-fuh-rin · at the SAME TIME · EV-ery EVE-ning · NEV-er MISS · a DOSE ↘</div>
+  </div>
+
+  <div class="word-card-oet high">
+    <div class="wt">METHOTREXATE</div>
+    <div class="ws">meth-oh-<span class="ss">TREK</span>-sayt <span style="font-size:12px;color:#a0a8b8;">4 syllables</span></div>
+    <div class="wipa">/ˌmeθəˈtreksɪt/</div>
+    <div class="wpitch">🎵 Pitch: low-low-HIGH-low — peak on TREK. "meth-" = /meθ/. "-oh-" = schwa. "-TREK-" = /trek/ (hard k). "-sayt" = /seɪt/.</div>
+    <div class="wnote">⚠️ Derek's error: "Medicaid" ❌ — meth-oh-TREK-sayt. This is a weekly medication — only ONCE a week. Stress on TREK.</div>
+    <div class="wex"><span class="tw">Methotrexate</span> is taken once a week — never daily.</div>
+    <div class="wstress">meth-oh-TREK-sayt · is TAK-en · ONCE a WEEK ↗ · NEV-er DAY-ly ↘</div>
+  </div>
+
+  <div class="word-card-oet high">
+    <div class="wt">AMOXICILLIN</div>
+    <div class="ws">uh-<span class="ss">MOK</span>-sih-<span class="ss">SIL</span>-in <span style="font-size:12px;color:#a0a8b8;">5 syllables</span></div>
+    <div class="wipa">/əˌmɒksɪˈsɪlɪn/</div>
+    <div class="wpitch">🎵 Pitch: two peaks — MOK (2nd) and SIL (4th). "uh-" = very short schwa. "-sih-" = quick /sɪ/. "-in" = light ending.</div>
+    <div class="wnote">⚠️ Derek's error: "Anthropic Sheridan" ❌ — say all 5 syllables: uh / MOK / sih / SIL / in. Amoxicillin IS a type of penicillin.</div>
+    <div class="wex">Finish all your <span class="tw">amoxicillin</span> tablets, even if you start to feel better.</div>
+    <div class="wstress">FIN-ish ALL your · uh-MOK-sih-SIL-in · TAB-lets ↘ · EV-en if · you START · to feel BET-ter ↘</div>
+  </div>
+
+  <div class="word-card-oet">
+    <div class="wt">ATORVASTATIN</div>
+    <div class="ws">uh-tor-vuh-<span class="ss">STA</span>-tin <span style="font-size:12px;color:#a0a8b8;">5 syllables</span></div>
+    <div class="wipa">/əˌtɔːvəˈstætɪn/</div>
+    <div class="wpitch">🎵 Pitch: low-low-low-HIGH-low — peak on STA. "-vuh-" = schwa. STA = /stæ/ (short "a" as in "cat").</div>
+    <div class="wnote">⚠️ Say all 5 syllables clearly. Take at NIGHT — most effective in the evening. If you get muscle pain, stop and see your GP immediately.</div>
+    <div class="wex">Take your <span class="tw">atorvastatin</span> in the evening — it works best overnight.</div>
+    <div class="wstress">take your · uh-tor-vuh-STA-tin · in the EVE-ning ↘ · it WORKS BEST · o-ver-NIGHT ↘</div>
+  </div>
+
+  <div class="word-card-oet">
+    <div class="wt">IBUPROFEN</div>
+    <div class="ws">eye-byoo-<span class="ss">PROH</span>-fen <span style="font-size:12px;color:#a0a8b8;">4 syllables</span></div>
+    <div class="wipa">/ˌaɪbjuːˈprəʊfən/</div>
+    <div class="wpitch">🎵 Pitch: low-low-HIGH-low — peak on PROH. "eye-" = /aɪ/. "-byoo-" = /bjuː/. "-fen" = light schwa ending.</div>
+    <div class="wnote">⚠️ NEVER combine ibuprofen with methotrexate or lithium — dangerous interaction. Use paracetamol instead.</div>
+    <div class="wex">Please stop taking <span class="tw">ibuprofen</span> straight away — use paracetamol instead.</div>
+    <div class="wstress">PLEASE · STOP TAK-ing · eye-byoo-PROH-fen · STRAIGHT a-WAY ↘ · use · pa-ra-SEE-ta-mol · in-STEAD ↘</div>
+  </div>
+
+  <div class="word-card-oet">
+    <div class="wt">PARACETAMOL</div>
+    <div class="ws">pa-ra-<span class="ss">SEE</span>-ta-mol <span style="font-size:12px;color:#a0a8b8;">5 syllables</span></div>
+    <div class="wipa">/ˌpærəˈsiːtəmɒl/</div>
+    <div class="wpitch">🎵 Pitch: low-low-HIGH-low-low — peak on SEE. "-ta-" = short /tə/. "-mol" = /mɒl/ (British RP short "o").</div>
+    <div class="wnote">⚠️ Safe alternative to ibuprofen for patients on methotrexate, lithium, or warfarin. pa-ra-SEE-ta-mol — 5 syllables.</div>
+    <div class="wex">You can take <span class="tw">paracetamol</span> for pain relief — it's safe with your other medications.</div>
+    <div class="wstress">you can TAKE · pa-ra-SEE-ta-mol · for PAIN re-LIEF ↘ · it's SAFE · with your OTH-er · med-ih-KAY-shuns ↘</div>
+  </div>
+
+  <!-- BATCH 2 -->
+  <div class="pron-batch">📋 Batch 2 — Conditions & Clinical Terms</div>
+
+  <div class="word-card-oet high">
+    <div class="wt">ATRIAL FIBRILLATION</div>
+    <div class="ws"><span class="ss">AY</span>-tree-ul fib-rih-<span class="ss">LAY</span>-shun <span style="font-size:12px;color:#a0a8b8;">7 syllables</span></div>
+    <div class="wipa">/ˌeɪtriəl fɪbrɪˈleɪʃən/</div>
+    <div class="wpitch">🎵 Two peaks: AY (1st) and LAY (6th). "AY-tree-ul" = 3 syllables. "fib-rih-LAY-shun" = 4 syllables. "-shun" = light /ʃən/.</div>
+    <div class="wnote">⚠️ Derek's error: "actual vibration" ❌ — AY-tree-ul fib-rih-LAY-shun. Patient-friendly: "an irregular heartbeat that increases your stroke risk."</div>
+    <div class="wex">Warfarin is prescribed to prevent stroke in patients with <span class="tw">atrial fibrillation</span>.</div>
+    <div class="wstress">WOR-fuh-rin · is pre-SCRIBED · to pre-VENT STROKE ↘ · in PAY-shents · with · AY-tree-ul · fib-rih-LAY-shun ↘</div>
+  </div>
+
+  <div class="word-card-oet high">
+    <div class="wt">ANAPHYLAXIS</div>
+    <div class="ws">an-uh-fih-<span class="ss">LAK</span>-sis <span style="font-size:12px;color:#a0a8b8;">5 syllables</span></div>
+    <div class="wipa">/ˌænəfɪˈlæksɪs/</div>
+    <div class="wpitch">🎵 Pitch: low-low-low-HIGH-low — peak on LAK. "an-" = /æn/. "-uh-" = schwa. "-fih-" = /fɪ/. "-sis" = light ending.</div>
+    <div class="wnote">⚠️ Derek's error: "apoptosis" ❌ — an-uh-fih-LAK-sis. Signs: throat tightening, difficulty breathing, facial swelling. Use EpiPen immediately — do not wait.</div>
+    <div class="wex">If you experience signs of <span class="tw">anaphylaxis</span>, use your EpiPen straight away and call 999.</div>
+    <div class="wstress">if you ex-PER-ience · SIGNS of · an-uh-fih-LAK-sis ↘ · USE your EP-ih-pen · STRAIGHT a-WAY · and CALL · nine-nine-NINE ↘</div>
+  </div>
+
+  <div class="word-card-oet high">
+    <div class="wt">SEROTONIN SYNDROME</div>
+    <div class="ws">ser-oh-<span class="ss">TOH</span>-nin <span class="ss">SIN</span>-drohm <span style="font-size:12px;color:#a0a8b8;">6 syllables</span></div>
+    <div class="wipa">/ˌserəˈtəʊnɪn ˈsɪndrəʊm/</div>
+    <div class="wpitch">🎵 Two peaks: TOH (3rd) and SIN (5th). "ser-oh-" = low. "-nin" = /nɪn/. "SIN-drohm" — British RP: "-drome" = "-drohm".</div>
+    <div class="wnote">⚠️ Derek's error: "couch serotonin syndromes" ❌ — caused by St John's Wort + sertraline. Symptoms: agitation, confusion, rapid heartbeat. Medical emergency.</div>
+    <div class="wex">Combining St John's Wort with sertraline can trigger <span class="tw">serotonin syndrome</span>.</div>
+    <div class="wstress">com-BY-ning · sint JONZ wort · with SER-truh-leen · can TRIG-ger · ser-oh-TOH-nin SIN-drohm ↘</div>
+  </div>
+
+  <div class="word-card-oet">
+    <div class="wt">THERAPEUTIC INDEX</div>
+    <div class="ws">thair-uh-<span class="ss">PYOO</span>-tik <span class="ss">IN</span>-deks <span style="font-size:12px;color:#a0a8b8;">6 syllables</span></div>
+    <div class="wipa">/ˌθerəˈpjuːtɪk ˈɪndeks/</div>
+    <div class="wpitch">🎵 Two peaks: PYOO (3rd) and IN (5th). British RP /j/ glide: "PYOO" not "POO". "-tik" = /tɪk/. "IN-deks" = /ˈɪndeks/.</div>
+    <div class="wnote">⚠️ Derek's error: "dark eject index" ❌ — thair-uh-PYOO-tik IN-deks. Plain language: "the safe dose range is very small." Relevant for: lithium, warfarin, digoxin, methotrexate.</div>
+    <div class="wex">Lithium has a very narrow <span class="tw">therapeutic index</span> — even a small change in dose can be dangerous.</div>
+    <div class="wstress">LITH-ee-um · has a VER-y NAR-row · thair-uh-PYOO-tik IN-deks ↘ · EV-en a SMALL CHANGE · in DOSE · can be DAN-ger-ous ↘</div>
+  </div>
+
+  <div class="word-card-oet">
+    <div class="wt">OSTEOPOROSIS</div>
+    <div class="ws">os-tee-oh-puh-<span class="ss">ROH</span>-sis <span style="font-size:12px;color:#a0a8b8;">6 syllables</span></div>
+    <div class="wipa">/ˌɒstɪəʊpəˈrəʊsɪs/</div>
+    <div class="wpitch">🎵 Pitch: low-low-low-low-HIGH-low — peak on ROH. "os-tee-oh-" = 3 quick syllables. "-puh-" = schwa. "-sis" = light ending.</div>
+    <div class="wnote">⚠️ 6 syllables — say them all. os / tee / oh / puh / ROH / sis. Plain language: "a condition where your bones become weaker and more likely to break."</div>
+    <div class="wex">Alendronate is prescribed to slow down bone loss in patients with <span class="tw">osteoporosis</span>.</div>
+    <div class="wstress">AL-en-droh-nayt · is pre-SCRIBED · to SLOW DOWN · BONE LOSS ↘ · in PAY-shents · with · os-tee-oh-puh-ROH-sis ↘</div>
+  </div>
+
+  <div class="word-card-oet">
+    <div class="wt">HYPOGLYCAEMIA</div>
+    <div class="ws">hy-poh-gly-<span class="ss">SEE</span>-mee-uh <span style="font-size:12px;color:#a0a8b8;">6 syllables</span></div>
+    <div class="wipa">/ˌhaɪpəʊɡlaɪˈsiːmiə/</div>
+    <div class="wpitch">🎵 Pitch: low-low-low-HIGH-low-low — peak on SEE. "gly-" = /ɡlaɪ/ (rhymes with "fly"). "-mee-uh" = 2 light syllables at end.</div>
+    <div class="wnote">⚠️ Plain language: "low blood sugar." Metformin does NOT cause low blood sugar on its own — common misconception. Important to clarify for newly diagnosed diabetic patients.</div>
+    <div class="wex">Metformin does not cause <span class="tw">hypoglycaemia</span> on its own — you don't need to worry about that.</div>
+    <div class="wstress">MET-for-min · does NOT CAUSE · hy-poh-gly-SEE-mee-uh · on its OWN ↘ · you DON'T need · to WOR-ry · a-BOUT that ↘</div>
+  </div>
+
+  <!-- BATCH 3 -->
+  <div class="pron-batch">📋 Batch 3 — High-Risk Drug Interactions & Side Effects</div>
+
+  <div class="word-card-oet high">
+    <div class="wt">TOXICITY</div>
+    <div class="ws">tok-<span class="ss">SIS</span>-ih-tee <span style="font-size:12px;color:#a0a8b8;">4 syllables</span></div>
+    <div class="wipa">/tɒkˈsɪsɪti/</div>
+    <div class="wpitch">🎵 Pitch: low-HIGH-low-low — peak on SIS. "tok-" = /tɒk/ (British short "o"). "-ih-" = /ɪ/. "-tee" = light ending.</div>
+    <div class="wnote">⚠️ Plain language: "too much medicine building up in your body — it can be dangerous." Relevant for lithium, methotrexate, digoxin.</div>
+    <div class="wex">If lithium levels rise too high, it can cause serious <span class="tw">toxicity</span> — this is why regular blood tests are essential.</div>
+    <div class="wstress">if LITH-ee-um LEV-els · RISE too HIGH ↗ · it can cause SER-ious · tok-SIS-ih-tee ↘ · THIS is why · REG-u-lar BLOOD TESTS · are es-SEN-shul ↘</div>
+  </div>
+
+  <div class="word-card-oet high">
+    <div class="wt">RIFAMPICIN</div>
+    <div class="ws">rif-<span class="ss">AM</span>-pih-sin <span style="font-size:12px;color:#a0a8b8;">4 syllables</span></div>
+    <div class="wipa">/rɪˈfæmpɪsɪn/</div>
+    <div class="wpitch">🎵 Pitch: low-HIGH-low-low — peak on AM. "rif-" = /rɪf/. "-AM-" = /æm/ (short "a" as in "cat"). "-sin" = /sɪn/.</div>
+    <div class="wnote">⚠️ Derek's error: "repumpishing" / "re pump engine" ❌ — rif-AM-pih-sin. Reduces effectiveness of the contraceptive pill — use condoms during + 4 weeks after. Never stop without GP advice.</div>
+    <div class="wex"><span class="tw">Rifampicin</span> significantly reduces the effectiveness of the contraceptive pill.</div>
+    <div class="wstress">rif-AM-pih-sin · sig-NIF-ih-kunt-ly · re-DYOO-ses · the ef-FEK-tiv-ness · of the con-truh-SEP-tiv PILL ↘</div>
+  </div>
+
+  <div class="word-card-oet high">
+    <div class="wt">SERTRALINE</div>
+    <div class="ws"><span class="ss">SER</span>-truh-leen <span style="font-size:12px;color:#a0a8b8;">3 syllables</span></div>
+    <div class="wipa">/ˈsɜːtrəliːn/</div>
+    <div class="wpitch">🎵 Pitch: HIGH-low-low — peak on SER. British RP: SER = /sɜː/ (non-rhotic, long vowel). "-truh-" = schwa. "-leen" = long /iːn/.</div>
+    <div class="wnote">⚠️ Derek's error: "start trialing" / "sertrain" ❌ — SER-truh-leen. Combined with St John's Wort → serotonin syndrome risk.</div>
+    <div class="wex">Combining St John's Wort with <span class="tw">sertraline</span> can cause a dangerous reaction in your brain.</div>
+    <div class="wstress">com-BY-ning · sint JONZ wort · with SER-truh-leen · can CAUSE · a DAN-ger-ous re-AK-shun · in your BRAIN ↘</div>
+  </div>
+
+  <div class="word-card-oet high">
+    <div class="wt">DIGOXIN</div>
+    <div class="ws">dih-<span class="ss">JOK</span>-sin <span style="font-size:12px;color:#a0a8b8;">3 syllables</span></div>
+    <div class="wipa">/dɪˈdʒɒksɪn/</div>
+    <div class="wpitch">🎵 Pitch: low-HIGH-low — peak on JOK. "-JOK-" = /dʒɒk/ — soft "g" sound /dʒ/ as in "jelly". "-sin" = /sɪn/.</div>
+    <div class="wnote">⚠️ Derek's error: "Devotion" ❌ — dih-JOK-sin. St John's Wort reduces digoxin levels → heart medication becomes less effective. Check INR and digoxin levels urgently if St John's Wort has been taken.</div>
+    <div class="wex">St John's Wort can reduce the level of <span class="tw">digoxin</span> in your blood, making your heart medication less effective.</div>
+    <div class="wstress">sint JONZ wort · can re-DYOOS · the LEV-ul · of dih-JOK-sin · in your BLOOD ↘ · MAK-ing your HEART · med-ih-KAY-shun · less ef-FEK-tiv ↘</div>
+  </div>
+
+  <div class="word-card-oet">
+    <div class="wt">VARENICLINE (Champix)</div>
+    <div class="ws">vuh-<span class="ss">REN</span>-ih-klin <span style="font-size:12px;color:#a0a8b8;">4 syllables</span></div>
+    <div class="wipa">/vəˈrenɪklɪn/</div>
+    <div class="wpitch">🎵 Pitch: low-HIGH-low-low — peak on REN. "vuh-" = short schwa. "-klin" = /klɪn/ (hard k, light ending).</div>
+    <div class="wnote">⚠️ Also known as Champix. Prescription smoking cessation medication — higher success rate than NRT alone. Discuss with GP. Reduces the pleasure from smoking and reduces cravings.</div>
+    <div class="wex">Your GP can prescribe <span class="tw">varenicline</span> — it has a higher success rate than nicotine patches alone.</div>
+    <div class="wstress">your GP · can pre-SCRIBE · vuh-REN-ih-klin ↘ · it has a HY-er · SUK-ses RATE · than NIK-oh-teen PATCH-es · uh-LONE ↘</div>
+  </div>
+
+  <div class="word-card-oet">
+    <div class="wt">ALENDRONATE</div>
+    <div class="ws">uh-<span class="ss">LEN</span>-droh-nayt <span style="font-size:12px;color:#a0a8b8;">4 syllables</span></div>
+    <div class="wipa">/əˈlendrəneɪt/</div>
+    <div class="wpitch">🎵 Pitch: low-HIGH-low-low — peak on LEN. "uh-" = short schwa. "-droh-" = /drəʊ/. "-nayt" = /neɪt/.</div>
+    <div class="wnote">⚠️ Once weekly bisphosphonate for osteoporosis. Take on empty stomach, full glass of water, stay upright 30 minutes. Separate from calcium supplements by several hours.</div>
+    <div class="wex">Take your <span class="tw">alendronate</span> first thing in the morning — before eating and before your supplements.</div>
+    <div class="wstress">TAKE your · uh-LEN-droh-nayt · FIRST THING · in the MOR-ning ↘ · be-FORE EAT-ing · and be-FORE · your SUP-pluh-ments ↘</div>
+  </div>
+
+  <!-- BATCH 4 -->
+  <div class="pron-batch">📋 Batch 4 — Common Side Effect Words</div>
+
+  <div class="word-card-oet">
+    <div class="wt">GASTROINTESTINAL</div>
+    <div class="ws">gas-troh-in-<span class="ss">TES</span>-tih-nul <span style="font-size:12px;color:#a0a8b8;">6 syllables</span></div>
+    <div class="wipa">/ˌɡæstrəʊɪnˈtestɪnəl/</div>
+    <div class="wpitch">🎵 Pitch: low-low-low-HIGH-low-low — peak on TES. "gas-troh-" = 2 quick syllables. "-in-" = /ɪn/. "-nul" = schwa ending.</div>
+    <div class="wnote">⚠️ Derek's error: "orchestral strata" ❌ — gas-troh-in-TES-tih-nul. Plain language: "stomach and digestive problems." Common methotrexate and ferrous sulfate side effect.</div>
+    <div class="wex">Common <span class="tw">gastrointestinal</span> side effects include nausea and loose stools — take it with food to help.</div>
+    <div class="wstress">COM-mon · gas-troh-in-TES-tih-nul · SIDE ef-fekts · in-KLOOD · NAW-zee-uh · and LOOS STOOLZ ↘ · TAKE it with FOOD · to HELP ↘</div>
+  </div>
+
+  <div class="word-card-oet">
+    <div class="wt">CONVULSIONS</div>
+    <div class="ws">kun-<span class="ss">VUL</span>-shunz <span style="font-size:12px;color:#a0a8b8;">3 syllables</span></div>
+    <div class="wipa">/kənˈvʌlʃənz/</div>
+    <div class="wpitch">🎵 Pitch: low-HIGH-low — peak on VUL. "kun-" = short /kən/. "-shunz" = /ʃənz/ (soft "sh" sound). Always plural in this context.</div>
+    <div class="wnote">⚠️ Derek's error: "conversions" ❌ — kun-VUL-shunz. Plain language: "shaking they can't control." Risk in children under 6 from OTC cold medicines — one reason they're contraindicated.</div>
+    <div class="wex">Over-the-counter cold medicines can cause <span class="tw">convulsions</span> in young children — this is why we can't recommend them.</div>
+    <div class="wstress">OH-ver the KOWN-ter · COLD MED-ih-sins · can CAUSE · kun-VUL-shunz · in YOUNG CHIL-dren ↘ · THIS is WHY · we CAN'T · rec-uh-MEND them ↘</div>
+  </div>
+
+  <div class="word-card-oet">
+    <div class="wt">DECONGESTANT</div>
+    <div class="ws">dee-kun-<span class="ss">JES</span>-tunt <span style="font-size:12px;color:#a0a8b8;">4 syllables</span></div>
+    <div class="wipa">/ˌdiːkənˈdʒestənt/</div>
+    <div class="wpitch">🎵 Pitch: low-low-HIGH-low — peak on JES. "dee-" = /diː/. "kun-" = schwa. "-tunt" = /tənt/ (light ending).</div>
+    <div class="wnote">⚠️ Derek's error: "condensed natural" ❌ — dee-kun-JES-tunt. Maximum 3–5 days use only. Prolonged use → rebound congestion. Alternative: saline spray.</div>
+    <div class="wex">This <span class="tw">decongestant</span> spray should only be used for three to five days at most.</div>
+    <div class="wstress">this · dee-kun-JES-tunt SPRAY · should ON-ly be USED · for THREE to FIVE DAYS · at MOST ↘</div>
+  </div>
+
+  <div class="word-card-oet">
+    <div class="wt">ABSORPTION</div>
+    <div class="ws">ab-<span class="ss">SORP</span>-shun <span style="font-size:12px;color:#a0a8b8;">3 syllables</span></div>
+    <div class="wipa">/əbˈsɔːpʃən/</div>
+    <div class="wpitch">🎵 Pitch: low-HIGH-low — peak on SORP. "ab-" = /əb/ (schwa). "-shun" = /ʃən/. British RP: SORP = /sɔːp/ (non-rhotic, long vowel).</div>
+    <div class="wnote">⚠️ Derek's error: "observation" ❌ — ab-SORP-shun. Plain language: "how well your body takes in the medicine." Tea, coffee, and dairy reduce iron absorption.</div>
+    <div class="wex">Tea and coffee can significantly reduce the <span class="tw">absorption</span> of iron — leave at least an hour between them.</div>
+    <div class="wstress">TEA and COF-fee · can sig-NIF-ih-kunt-ly · re-DYOOS · the ab-SORP-shun · of I-urn ↘ · LEAVE at least · an HOUR · be-TWEEN them ↘</div>
+  </div>
+
+  <div class="word-card-oet">
+    <div class="wt">TREMOR</div>
+    <div class="ws"><span class="ss">TREM</span>-ur <span style="font-size:12px;color:#a0a8b8;">2 syllables</span></div>
+    <div class="wipa">/ˈtremə/</div>
+    <div class="wpitch">🎵 Pitch: HIGH-low — peak on TREM. British RP: "-ur" = "-uh" (schwa, non-rhotic). Short, sharp word — don't draw it out.</div>
+    <div class="wnote">⚠️ 2 syllables only — TREM-ur. Key lithium toxicity warning sign: shaking or trembling in the hands. If it occurs → emergency room immediately.</div>
+    <div class="wex">Watch out for <span class="tw">tremor</span> — if your hands start shaking, go to the emergency room immediately.</div>
+    <div class="wstress">WATCH OUT · for TREM-ur ↘ · if your HANDS · start SHAK-ing ↗ · GO to the · ih-MUR-jun-see ROOM · ih-MEE-dee-ut-lee ↘</div>
+  </div>
+
+  <div class="word-card-oet">
+    <div class="wt">INR (blood test)</div>
+    <div class="ws"><span class="ss">I</span> — <span class="ss">N</span> — <span class="ss">R</span> <span style="font-size:12px;color:#a0a8b8;">say each letter separately</span></div>
+    <div class="wipa">/aɪ en ɑː/</div>
+    <div class="wpitch">🎵 Three separate letters — equal stress on each. "I" = /aɪ/. "N" = /en/. "R" = /ɑː/ (British RP — non-rhotic, no "er" sound). Do NOT run them together as a word.</div>
+    <div class="wnote">⚠️ Derek's error: "ANI" ❌ — say I — N — R as three separate letters. Plain language: "a blood test to check how thin your blood is." Essential monitoring for warfarin patients.</div>
+    <div class="wex">You'll need regular <span class="tw">INR</span> blood tests to make sure your warfarin dose is at the right level.</div>
+    <div class="wstress">you'll NEED · REG-u-lar · I — N — R · BLOOD TESTS ↘ · to make SURE · your WOR-fuh-rin DOSE · is at the RIGHT LEV-ul ↘</div>
+  </div>
+
+  </div><!-- end pronunciation bank -->
 
 </div>
 
