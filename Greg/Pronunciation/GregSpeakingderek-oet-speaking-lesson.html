@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Derek — OET Speaking Focus List</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#fff;--bg2:#f5f5f3;--bg3:#eeecea;--text:#1a1a1a;--text2:#555550;--text3:#888880;
+  --border:rgba(0,0,0,0.12);--border2:rgba(0,0,0,0.22);
+  --green-bg:#EAF3DE;--green-text:#3B6D11;--green-border:#639922;
+  --amber-bg:#FBF3E0;--amber-text:#8A6516;--amber-border:#C99A3A;
+  --red-bg:#FCEBEB;--red-text:#A32D2D;--red-border:#E24B4A;
+  --radius:12px;--radius-sm:8px;
+}
+[data-theme="dark"]{
+  --bg:#1e1e1c;--bg2:#2a2a28;--bg3:#333331;--text:#f0ede8;--text2:#a8a49e;--text3:#6e6a64;
+  --border:rgba(255,255,255,0.1);--border2:rgba(255,255,255,0.2);
+  --green-bg:#1a2e0a;--green-text:#a8d870;--green-border:#639922;
+  --amber-bg:#2e2410;--amber-text:#e0bf78;--amber-border:#C99A3A;
+  --red-bg:#2e0f0f;--red-text:#f09595;--red-border:#a32d2d;
+}
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;width:40px;height:40px;border-radius:50%;border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;padding:1.5rem 1rem 4rem;max-width:660px;margin:0 auto;}
+.header{padding-bottom:1.2rem;border-bottom:0.5px solid var(--border);margin-bottom:1.5rem;}
+.eyebrow{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:0.4rem;}
+h1{font-size:22px;font-weight:500;margin-bottom:0.3rem;}
+.subtitle{font-size:14px;color:var(--text2);}
+.snapshot{background:var(--bg2);border-radius:var(--radius);padding:1rem 1.2rem;margin-bottom:1.8rem;display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;}
+.snapshot .big{font-size:30px;font-weight:600;}
+.snapshot .lbl{font-size:13px;color:var(--text2);}
+.tier{margin-bottom:1.8rem;}
+.tier-head{display:flex;align-items:center;gap:10px;margin-bottom:0.9rem;}
+.tier-tag{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;padding:4px 10px;border-radius:20px;}
+.tag-now{background:var(--red-bg);color:var(--red-text);}
+.tag-next{background:var(--amber-bg);color:var(--amber-text);}
+.tag-polish{background:var(--green-bg);color:var(--green-text);}
+.tier-title{font-size:16px;font-weight:500;}
+.tier-note{font-size:13px;color:var(--text3);margin-left:auto;}
+.item{background:var(--bg);border:0.5px solid var(--border);border-left:3px solid var(--border2);border-radius:var(--radius-sm);padding:0.9rem 1.1rem;margin-bottom:9px;}
+.item.now{border-left-color:var(--red-border);}
+.item.next{border-left-color:var(--amber-border);}
+.item.polish{border-left-color:var(--green-border);}
+.item-title{font-size:15px;font-weight:500;margin-bottom:3px;}
+.item-why{font-size:13px;color:var(--text2);margin-bottom:6px;}
+.item-fix{font-size:13px;color:var(--text);background:var(--bg2);padding:7px 10px;border-radius:6px;}
+.item-fix strong{font-weight:600;}
+.mono{font-family:monospace;font-size:12.5px;}
+.footer-note{font-size:12px;color:var(--text3);margin-top:2rem;padding-top:1rem;border-top:0.5px solid var(--border);}
+.results{margin-bottom:1.8rem;}
+.results-title{font-size:16px;font-weight:500;margin-bottom:0.3rem;}
+.results-sub{font-size:13px;color:var(--text2);margin-bottom:0.9rem;}
+.chk{display:flex;align-items:center;gap:10px;padding:8px 11px;border-radius:var(--radius-sm);margin-bottom:6px;font-size:14px;border:0.5px solid var(--border);}
+.chk.pass{background:var(--green-bg);color:var(--green-text);border-color:var(--green-border);}
+.chk.todo{background:var(--bg);color:var(--text2);}
+.chk-mark{font-weight:700;width:16px;text-align:center;flex-shrink:0;}
+.chk.pass .chk-mark{color:var(--green-text);}
+.chk.todo .chk-mark{color:var(--red-text);}
+.results-count{font-size:13px;color:var(--text3);margin-top:0.7rem;}
+.bank-intro{background:var(--bg2);border-radius:var(--radius);padding:1rem 1.2rem;margin-bottom:1.4rem;font-size:13px;color:var(--text2);}
+.bank-cat{font-size:11px;text-transform:uppercase;letter-spacing:0.07em;color:var(--text3);font-weight:600;margin:1.6rem 0 0.7rem;padding-bottom:5px;border-bottom:0.5px solid var(--border);}
+.qa{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius);padding:1rem 1.15rem;margin-bottom:11px;}
+.qa-q{font-size:15px;font-weight:600;margin-bottom:9px;}
+.qa-q::before{content:"\1F5E3 ";}
+.qa-line{font-size:14px;padding:6px 10px;border-radius:var(--radius-sm);margin-bottom:6px;line-height:1.5;}
+.qa-say{background:var(--green-bg);color:var(--green-text);}
+.qa-dont{background:var(--red-bg);color:var(--red-text);}
+.qa-phon{background:var(--amber-bg);color:var(--amber-text);font-style:italic;}
+.qa-tag{font-weight:700;font-style:normal;margin-right:5px;}
+.qa-phon .qa-tag{font-style:normal;}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:1.4rem;font-size:12px;}
+.legend span{display:flex;align-items:center;gap:5px;}
+.legend .dot{width:11px;height:11px;border-radius:3px;display:inline-block;}
+.dot-g{background:var(--green-border);}
+.dot-r{background:var(--red-border);}
+.dot-a{background:var(--amber-border);}
+.tabbar{display:flex;gap:6px;margin-bottom:1.6rem;border-bottom:0.5px solid var(--border);}
+.tab{padding:9px 16px;font-size:14px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text2);cursor:pointer;margin-bottom:-0.5px;}
+.tab:hover{color:var(--text);}
+.tab.active{color:var(--text);border-bottom-color:var(--text);}
+.tabpane{display:none;}
+.tabpane.visible{display:block;}
+.tts-btn{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:6px;border:0.5px solid var(--border2);background:var(--bg);color:var(--text2);cursor:pointer;font-size:14px;margin-left:8px;vertical-align:middle;flex-shrink:0;padding:0;}
+.tts-btn:hover{background:var(--bg2);color:var(--text);}
+.tts-btn.speaking{background:var(--green-bg);color:var(--green-text);border-color:var(--green-border);}
+.qa-q{display:flex;align-items:center;flex-wrap:wrap;gap:2px;}
+.voicebar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--bg2);border-radius:var(--radius);padding:0.8rem 1rem;margin-bottom:1.4rem;font-size:13px;}
+.voicebar label{color:var(--text2);}
+.voicebar select{font-family:inherit;font-size:13px;padding:5px 8px;border-radius:6px;border:0.5px solid var(--border2);background:var(--bg);color:var(--text);}
+.voicebar .rate-val{color:var(--text3);min-width:34px;}
+.voicebar input[type=range]{accent-color:var(--text);}
+</style>
+</head>
+<body>
+<button class="theme-toggle" id="tt" onclick="tog()" aria-label="Toggle theme">&#9728;&#65039;</button>
+
+<div class="header">
+  <p class="eyebrow">Profrenchional &middot; OET Speaking &middot; Derek</p>
+  <h1>What to focus on next</h1>
+  <p class="subtitle">Based on the two pharmacist role-plays. Ordered by impact &mdash; fix the top group first.</p>
+</div>
+
+<div class="tabbar">
+  <button class="tab active" id="tabbtn-focus" onclick="showTab('focus')">Focus list</button>
+  <button class="tab" id="tabbtn-bank" onclick="showTab('bank')">Patient databank</button>
+</div>
+
+<div id="tab-focus" class="tabpane visible">
+
+<div class="snapshot">
+  <div><div class="big">~C</div><div class="lbl">estimated now (not official)</div></div>
+  <div><div class="big">B</div><div class="lbl">target for registration</div></div>
+  <div style="flex:1;min-width:180px;"><div class="lbl">Closing the gap is mostly about the 3 red items below &mdash; they pull down several criteria at once.</div></div>
+</div>
+
+<!-- SESSION 1 CHECKLIST RESULTS -->
+<div class="results">
+  <p class="results-title">Session 1 &mdash; role-play checklist</p>
+  <p class="results-sub">From the two pharmacist role-plays. Only one of ten was met &mdash; the rest are the working list.</p>
+  <div class="chk pass"><span class="chk-mark">&#10003;</span> Avoided medical jargon (or explained it simply)</div>
+  <div class="chk todo"><span class="chk-mark">&times;</span> Greeted warmly and built rapport</div>
+  <div class="chk todo"><span class="chk-mark">&times;</span> Found out what the patient already knew</div>
+  <div class="chk todo"><span class="chk-mark">&times;</span> Gave instructions clearly, step by step</div>
+  <div class="chk todo"><span class="chk-mark">&times;</span> Gave advice as suggestions, not orders</div>
+  <div class="chk todo"><span class="chk-mark">&times;</span> Acknowledged the patient's worries</div>
+  <div class="chk todo"><span class="chk-mark">&times;</span> Checked understanding before closing</div>
+  <div class="chk todo"><span class="chk-mark">&times;</span> Summarised the key points at the end</div>
+  <div class="chk todo"><span class="chk-mark">&times;</span> Clear pronunciation and word stress</div>
+  <div class="chk todo"><span class="chk-mark">&times;</span> Smooth pace, few hesitations</div>
+  <p class="results-count">1 of 10 met. This is a baseline &mdash; expect steady gains as the items below are drilled.</p>
+</div>
+
+<!-- TIER 1 -->
+<div class="tier">
+  <div class="tier-head">
+    <span class="tier-tag tag-now">Fix now</span>
+    <span class="tier-title">Highest impact</span>
+    <span class="tier-note">biggest, fastest gains</span>
+  </div>
+
+  <div class="item now">
+    <p class="item-title">1. Cut the "ums"</p>
+    <p class="item-why">Frequent filled hesitations. Hurts <strong>fluency</strong> and blurs <strong>structure</strong>. Silent pauses score better than "um".</p>
+    <p class="item-fix"><strong>Drill:</strong> when he feels an "um" coming, close the mouth and pause instead. Practise 1&ndash;2 second silent pauses between sentences until they feel normal.</p>
+  </div>
+
+  <div class="item now">
+    <p class="item-title">2. Ask answerable questions</p>
+    <p class="item-why">Questions are too broad (<span class="mono">"what do you know about this medicine?"</span>) &mdash; the patient can't answer. Weakens <strong>information gathering</strong>.</p>
+    <p class="item-fix"><strong>Swap to narrow questions:</strong> "Has the doctor told you how often to take it?" &bull; "Have you taken anything like this before?" &bull; "Do you have any allergies?"</p>
+  </div>
+
+  <div class="item now">
+    <p class="item-title">3. Signpost to add structure</p>
+    <p class="item-why">No pauses means steps run together; the patient could get lost. Weakens <strong>providing structure</strong>.</p>
+    <p class="item-fix"><strong>Use structure phrases + a pause:</strong> "First, let me explain how to take it." &bull; "Now, about the side effects..." &bull; "So, to sum up..."</p>
+  </div>
+</div>
+
+<!-- TIER 2 -->
+<div class="tier">
+  <div class="tier-head">
+    <span class="tier-tag tag-next">Build next</span>
+    <span class="tier-title">Steady work</span>
+    <span class="tier-note">longer payoff</span>
+  </div>
+
+  <div class="item next">
+    <p class="item-title">4. Pronunciation: /s/ not /sh/</p>
+    <p class="item-why">The s &rarr; sh substitution reduces <strong>intelligibility</strong> (a scored criterion, and his own priority).</p>
+    <p class="item-fix"><strong>Minimal pairs:</strong> <span class="mono">sip / ship &bull; sue / shoe &bull; sea / she &bull; save / shave &bull; sock / shock</span></p>
+  </div>
+
+  <div class="item next">
+    <p class="item-title">5. Pronunciation: /r/ not /l/</p>
+    <p class="item-why">The r &rarr; l substitution also reduces <strong>intelligibility</strong>. Common and worth steady drilling.</p>
+    <p class="item-fix"><strong>Minimal pairs:</strong> <span class="mono">right / light &bull; rice / lice &bull; road / load &bull; correct / collect &bull; pray / play</span></p>
+  </div>
+
+  <div class="item next">
+    <p class="item-title">6. Show the patient's perspective</p>
+    <p class="item-why">Currently a bit neutral. Cordial, but doesn't actively name the patient's feelings. Affects <strong>patient's perspective</strong>.</p>
+    <p class="item-fix"><strong>Empathy phrases:</strong> "I can see this is worrying you." &bull; "That's a very good question." &bull; "It's completely normal to feel unsure."</p>
+  </div>
+</div>
+
+<!-- TIER 3 -->
+<div class="tier">
+  <div class="tier-head">
+    <span class="tier-tag tag-polish">Polish later</span>
+    <span class="tier-title">Already solid</span>
+    <span class="tier-note">stretch goals</span>
+  </div>
+
+  <div class="item polish">
+    <p class="item-title">7. Widen grammar range</p>
+    <p class="item-why">Grammar is accurate but sentences stay simple. OET rewards <strong>range</strong>, so a few complex structures lift the score.</p>
+    <p class="item-fix"><strong>Add:</strong> "If you miss a dose, you should..." &bull; "The reason you need to finish the course is..." &bull; "What I'd suggest is..."</p>
+  </div>
+
+  <div class="item polish">
+    <p class="item-title">8. Clarity when giving information</p>
+    <p class="item-why">Already simple and jargon-free &mdash; just needs a bit more precision and a final check.</p>
+    <p class="item-fix"><strong>End with teach-back:</strong> "Just so I know it's clear, could you tell me how you'll take it?"</p>
+  </div>
+</div>
+
+<div class="footer-note">
+  Strengths to keep: warm greeting &amp; rapport, appropriate formality, accurate grammar, simple jargon-free language, growing confidence.<br><br>
+  Note: the grade estimate is a teaching guide, not an official OET result &mdash; real scores come from trained assessors rating recorded audio.
+</div>
+
+</div><!-- end tab-focus -->
+
+<div id="tab-bank" class="tabpane">
+<!-- PATIENT Q&A DATABANK -->
+<div class="bank-cat" style="margin-top:2.5rem;border-bottom:none;font-size:16px;text-transform:none;letter-spacing:0;color:var(--text);font-weight:500;">Patient question databank</div>
+<div class="bank-intro">Common pharmacy questions with a model answer, what to avoid, and a NZ-accent phonetic version for pronunciation drilling. Derek reads the <strong>green</strong> answer, then practises the <strong>amber</strong> phonetic line for natural linking and reduced sounds. General rule: advise, reassure, refer &mdash; never diagnose or guarantee a cure.</div>
+
+<div class="legend">
+  <span><span class="dot dot-g"></span> Say this</span>
+  <span><span class="dot dot-r"></span> Avoid this</span>
+  <span><span class="dot dot-a"></span> Kiwi phonetic (drill aloud)</span>
+</div>
+
+<div class="voicebar">
+  <span>&#128266; Tap the speaker on any question or answer to hear it.</span>
+  <label for="voice-select">Voice:</label>
+  <select id="voice-select"></select>
+  <label for="rate-slider">Speed:</label>
+  <input type="range" id="rate-slider" min="0.6" max="1.1" step="0.05" value="0.9" oninput="document.getElementById('rate-val').textContent=this.value+'x'">
+  <span class="rate-val" id="rate-val">0.9x</span>
+</div>
+<p id="voice-hint" style="display:none;font-size:12px;color:var(--amber-text);background:var(--amber-bg);border-radius:8px;padding:8px 11px;margin:-0.8rem 0 1.4rem;">No Australian or NZ voice found on this device. To add one: <strong>Android</strong> &mdash; Settings &rarr; Text-to-speech &rarr; install a Google en-AU voice. <strong>iPhone</strong> &mdash; Settings &rarr; Accessibility &rarr; Spoken Content &rarr; Voices &rarr; English (Australia). <strong>Windows</strong> &mdash; Settings &rarr; Time &amp; Language &rarr; Speech &rarr; add English (Australia). Then reload this page.</p>
+
+<div class="bank-cat">Whether it will work</div>
+
+<div class="qa">
+  <p class="qa-q">"Will this cure me?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"This medication treats it in most cases, but you'll still need a check-up with your doctor to be sure."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>"Yes, this will cure you." (false guarantee) &mdash; or a flat "I can't say" (no reassurance).</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"Dis med'cin treats-it in most-cases, but y'll still need-a check-up wid yer doctor ta be sure."</p>
+</div>
+
+<div class="qa">
+  <p class="qa-q">"How long until I feel better?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"Most people start to feel better within a few days. If you don't notice any change after a few days, please go back to your doctor."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>An exact promise: "You'll be fine by Friday." Bodies vary &mdash; you can't guarantee it.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"Most-people start-ta feel better widin-a few days. If-yu don' notice any change afta few days, please go-back ta yer doctor."</p>
+</div>
+
+<div class="qa">
+  <p class="qa-q">"Is this the strongest one you have?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"Your doctor has chosen the dose that's right for you. Stronger isn't always better &mdash; this one is matched to your needs."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>"Yes, I'll give you something stronger." You can't change a prescribed dose &mdash; that's the prescriber's call.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"Yer doctor's chosen the dose that's right-for-yu. Stronger isn't-always better &mdash; dis-wun's matched ta yer needs."</p>
+</div>
+
+<div class="bank-cat">How to take it</div>
+
+<div class="qa">
+  <p class="qa-q">"When should I take it?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"It's best to take one tablet twice a day, with food &mdash; try to keep it to the same times each day."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>Vague: "Whenever, it's fine." Timing usually matters.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"It's bes-t'take wun tablet twice-a-day, wid food &mdash; try-na keep-it ta the same-times each day."</p>
+</div>
+
+<div class="qa">
+  <p class="qa-q">"Do I take it with food or on an empty stomach?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"This one's better with food &mdash; it helps reduce any stomach upset."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>Guessing. If you're unsure of a drug, check the label rather than invent an answer.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"Dis-wun's better wid food &mdash; it helps reduce any stomach-upset."</p>
+</div>
+
+<div class="qa">
+  <p class="qa-q">"What if I forget a dose?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"If you forget, take it as soon as you remember. But if it's almost time for the next one, just skip it &mdash; don't take two together."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>"Just take double next time." Dangerous &mdash; never advise doubling up.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"If-yu forget, take-it az soon-az-yu r'member. But if-it's almos'-time for the next-wun, jus' skip-it &mdash; don' take two tagether."</p>
+</div>
+
+<div class="qa">
+  <p class="qa-q">"Can I stop when I feel better?" (antibiotics)</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"It's really important to finish the whole course, even once you feel well. Stopping early can let the infection come back stronger."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>"Yes, that's fine once you feel okay." Wrong and unsafe for antibiotics.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"It's really impor'nt ta finish the whole course, even-once-yu feel well. Stoppin' early can let the infection come-back stronger."</p>
+</div>
+
+<div class="qa">
+  <p class="qa-q">"Can I cut the tablet in half?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"Some tablets can be split and some can't &mdash; let me check this one for you first."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>"Sure, that's fine." Some are slow-release and must not be split.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"Sum tablets can-be split an' sum can't &mdash; leh'me check dis-wun for-yu first."</p>
+</div>
+
+<div class="bank-cat">Side effects</div>
+
+<div class="qa">
+  <p class="qa-q">"Will it have side effects?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"You might notice some mild effects at first, such as a bit of nausea, and these usually settle. If anything feels severe, let me or your doctor know."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>"No, there are no side effects." Untrue for almost any drug &mdash; or listing every rare effect and scaring them.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"Yu might notice sum mild effects-at furst, such-az a bit-a nausea, an' these usually settle. If anythin' feels severe, leh'me or yer doctor know."</p>
+</div>
+
+<div class="qa">
+  <p class="qa-q">"I've had a rash since starting it &mdash; is that normal?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"Thank you for telling me. A rash can sometimes be a reaction, so I'd like you to stop it and speak to your doctor today, just to be safe."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>"Oh, that's nothing, keep taking it." A rash can signal an allergy &mdash; always take it seriously and refer.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"Thank-yu for tellin' me. A rash can sometimes be-a reaction, so I'd like-yu ta stop-it an' speak ta yer doctor taday, jus' ta be safe."</p>
+</div>
+
+<div class="bank-cat">Mixing with other things</div>
+
+<div class="qa">
+  <p class="qa-q">"Can I drink alcohol with this?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"It's best to avoid alcohol while you're on this medicine, as it can increase the side effects."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>"A little is fine." Depends on the drug &mdash; safer to advise avoiding, and check if unsure.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"It's bes-t'avoid alca-hol while-y're on dis med'cin, az-it can increase the side-effects."</p>
+</div>
+
+<div class="qa">
+  <p class="qa-q">"Can I take it with my other tablets?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"Let me check your other medicines for any interactions first &mdash; can you tell me everything you're taking, including anything bought without a prescription?"</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>"That should be okay." Never assume &mdash; catching interactions is exactly the pharmacist's job.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"Leh'me check yer other med'cins for any interactions first &mdash; can-yu tell-me everythin' y're takin', includin' anythin' bought widout a prescription?"</p>
+</div>
+
+<div class="qa">
+  <p class="qa-q">"I'm pregnant &mdash; is it safe?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"That's an important question. Some medicines need extra care during pregnancy, so I'd like to check this one and confirm with your doctor before you take it."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>"It'll be fine." High-stakes &mdash; never reassure casually. Check and refer.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"That's-an impor'nt question. Sum med'cins need extra-care durin' pregnancy, so I'd like-ta check dis-wun an' confirm wid yer doctor before-yu take-it."</p>
+</div>
+
+<div class="bank-cat">Outside your scope &mdash; refer, don't answer</div>
+
+<div class="qa">
+  <p class="qa-q">"What's wrong with me? Do you think I have an infection?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"I'm not able to diagnose that, but from what you're describing it's best to see your doctor. In the meantime, I can help with the symptoms."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>"It sounds like you have [X]." Diagnosing is outside a pharmacist's role.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"I'm not able-ta diagnose that, but from wha' y're describin' it's bes-t'see yer doctor. In the meantime, I can help wid the symptoms."</p>
+</div>
+
+<div class="qa">
+  <p class="qa-q">"Can you just give me something instead of the doctor?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"For this, I'd really recommend seeing your doctor, because it needs a proper examination. I don't want to miss anything important."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>Handing over a prescription-only medicine, or talking them out of proper care.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"For this, I'd really recommend seein' yer doctor, b'cause it needs-a proper examination. I don' wanna miss anythin' impor'nt."</p>
+</div>
+
+<div class="qa">
+  <p class="qa-q">"My friend has the same symptoms &mdash; can I give them my tablets?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"It's best not to share medicine, even with the same symptoms &mdash; the cause can be different, and the dose is set for you. Your friend should come and see me."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>"Sure, that's fine." Never endorse sharing prescription medicine.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"It's bes' not-ta share med'cin, even wid the same symptoms &mdash; the cause can-be different, an' the dose-is set for-yu. Yer friend should come-an' see me."</p>
+</div>
+
+<div class="bank-cat">Cost</div>
+
+<div class="qa">
+  <p class="qa-q">"Why is it so expensive? Is there a cheaper one?"</p>
+  <p class="qa-line qa-say"><span class="qa-tag">&#10003;</span>"There may be a generic version that works the same way for less &mdash; let me check for you. If cost is a real barrier, it's worth mentioning to your doctor too."</p>
+  <p class="qa-line qa-dont"><span class="qa-tag">&times;</span>Dismissing the concern, or promising a subsidy you can't confirm.</p>
+  <p class="qa-line qa-phon"><span class="qa-tag">&#128266;</span>"There may-be a generic version that works the same-way for less &mdash; leh'me check for-yu. If cost-is a real barrier, it's worth mentionin' ta yer doctor too."</p>
+</div>
+
+<div class="bank-intro" style="margin-top:1.4rem;">
+  <strong>Two OET reminders in every answer:</strong> give advice as <em>suggestions</em> ("it's best to...", "I'd recommend...") not orders; and nearly every safe answer either <em>checks</em> ("let me check for you") or <em>refers</em> ("please see your doctor") &mdash; that keeps Derek inside a pharmacist's scope.
+</div>
+</div><!-- end tab-bank -->
+
+<script>
+(function(){let s=null;try{s=localStorage.getItem('derek-focus-theme');}catch(e){}
+const d=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+document.documentElement.setAttribute('data-theme',s||(d?'dark':'light'));})();
+function tog(){const c=document.documentElement.getAttribute('data-theme');const n=c==='dark'?'light':'dark';
+document.documentElement.setAttribute('data-theme',n);document.getElementById('tt').textContent=n==='dark'?'\u{1F319}':'\u2600\uFE0F';
+try{localStorage.setItem('derek-focus-theme',n);}catch(e){}}
+(function(){const t=document.documentElement.getAttribute('data-theme');document.getElementById('tt').textContent=t==='dark'?'\u{1F319}':'\u2600\uFE0F';})();
+function showTab(id){
+  if(window.speechSynthesis)window.speechSynthesis.cancel();
+  if(currentBtn){currentBtn.classList.remove('speaking');currentBtn.textContent='\u{1F50A}';currentBtn=null;}
+  document.querySelectorAll('.tabpane').forEach(p=>p.classList.remove('visible'));
+  document.getElementById('tab-'+id).classList.add('visible');
+  document.getElementById('tabbtn-focus').classList.toggle('active',id==='focus');
+  document.getElementById('tabbtn-bank').classList.toggle('active',id==='bank');
+  window.scrollTo(0,0);
+}
+// ---- Text to speech ----
+let ttsVoices=[];
+let currentBtn=null;
+function cleanForSpeech(t){
+  // strip leading tick/cross/speaker marks and surrounding quotes
+  return t.replace(/^[\s\u2713\u2717\u2022\u{1F50A}\u23F8]+/u,'').replace(/[\u201c\u201d"]/g,'').trim();
+}
+// Respell the Kiwi phonetic drill lines so the TTS engine says the reduced/linked sounds.
+function phoneticRespell(t){
+  let s=cleanForSpeech(t);
+  const map=[
+    [/\bleh'me\b/gi,'lemmy'],[/\bcudju\b/gi,'cudjoo'],[/\bwudju\b/gi,'wudjoo'],
+    [/\bwid\b/gi,'widh'],[/\bdis\b/gi,'dhiss'],[/\bdat\b/gi,'dhat'],[/\bdhat-all\b/gi,'dhat all'],
+    [/\biz\b/gi,'izz'],[/\bwot\b/gi,'watt'],[/\bwots\b/gi,'whats'],[/\bd'yuh\b/gi,'dyuh'],[/\byuh\b/gi,'yuh'],
+    [/\bda\b/gi,'dhuh'],[/\bde\b/gi,'dhuh'],[/\bden\b/gi,'dhen'],
+    [/\bmed'cin\b/gi,'medsin'],[/\bmed'cins\b/gi,'medsins'],
+    [/\bta\b/gi,'tuh'],[/\bbes-t'/gi,'best tuh '],[/([a-z])-t'([a-z])/gi,'$1 tuh $2'],[/\byer\b/gi,'yur'],[/\by're\b/gi,'yer'],
+    [/\by'll\b/gi,'yull'],[/\byu\b/gi,'yoo'],[/\bh'/gi,'h'],
+    [/\baz\b/gi,'azz'],[/\ban'\b/gi,'and'],[/\bjus'\b/gi,'juss'],
+    [/\bwun\b/gi,'wun'],[/\bimpor'nt\b/gi,'important'],[/\balca-hol\b/gi,'alcohol'],
+    [/\bgrad-jualy\b/gi,'gradually'],[/\bfuruu+id\b/gi,'fluid'],[/\bsimpol\b/gi,'simpull'],
+    [/\bfurst\b/gi,'first'],[/\br'member\b/gi,'remember'],[/\btagether\b/gi,'together'],
+    [/\btaday\b/gi,'tuhday'],[/\bb'cause\b/gi,'becuz'],[/\bwanna\b/gi,'wonna'],
+    [/\btry-na\b/gi,'tryna'],[/\bwidout\b/gi,'widhout'],[/\bwidin\b/gi,'widhin'],
+    [/-/g,' ']  // linked words: turn hyphens into spaces so they run together naturally
+  ];
+  map.forEach(([re,rep])=>{s=s.replace(re,rep);});
+  // drop stray apostrophes left from reductions (don' -> don)
+  s=s.replace(/(\w)'(\s|$)/g,'$1$2');
+  return s;
+}
+function pickDefaultVoice(voices){
+  const pref=['en-AU','en-NZ','en-GB','en-'];
+  for(const p of pref){
+    const v=voices.find(x=>x.lang&&x.lang.toLowerCase().startsWith(p.toLowerCase()));
+    if(v)return v;
+  }
+  return voices[0];
+}
+function loadVoices(){
+  ttsVoices=window.speechSynthesis?window.speechSynthesis.getVoices():[];
+  const sel=document.getElementById('voice-select');
+  if(!sel)return;
+  const enVoices=ttsVoices.filter(v=>v.lang&&v.lang.toLowerCase().startsWith('en'));
+  const list=enVoices.length?enVoices:ttsVoices.slice();
+  // sort AU first, then NZ, then GB, then the rest
+  const rank=v=>{const l=(v.lang||'').toLowerCase();return l.startsWith('en-au')?0:l.startsWith('en-nz')?1:l.startsWith('en-gb')?2:3;};
+  list.sort((a,b)=>rank(a)-rank(b)||a.name.localeCompare(b.name));
+  sel.innerHTML='';
+  if(!list.length){sel.innerHTML='<option>No voices found</option>';return;}
+  const def=pickDefaultVoice(list);
+  list.forEach(v=>{const o=document.createElement('option');o.value=v.name;
+    const l=(v.lang||'').toLowerCase();
+    const flag=l.startsWith('en-au')?'\u{1F1E6}\u{1F1FA} ':l.startsWith('en-nz')?'\u{1F1F3}\u{1F1FF} ':'';
+    o.textContent=flag+v.name+' ('+v.lang+')';if(v===def)o.selected=true;sel.appendChild(o);});
+  // hint if no AU/NZ voice available
+  const hint=document.getElementById('voice-hint');
+  if(hint){
+    const hasAuNz=list.some(v=>{const l=(v.lang||'').toLowerCase();return l.startsWith('en-au')||l.startsWith('en-nz');});
+    hint.style.display=hasAuNz?'none':'block';
+  }
+}
+function speak(text,btn,isPhonetic){
+  if(!window.speechSynthesis){alert('Text-to-speech is not supported in this browser.');return;}
+  window.speechSynthesis.cancel();
+  if(currentBtn){currentBtn.classList.remove('speaking');currentBtn.textContent='\u{1F50A}';}
+  if(currentBtn===btn){currentBtn=null;return;} // tapping the same one stops it
+  const spoken=isPhonetic?phoneticRespell(text):cleanForSpeech(text);
+  const u=new SpeechSynthesisUtterance(spoken);
+  const sel=document.getElementById('voice-select');
+  const chosen=ttsVoices.find(v=>v.name===(sel&&sel.value));
+  if(chosen){u.voice=chosen;u.lang=chosen.lang;}
+  const rate=document.getElementById('rate-slider');
+  u.rate=rate?parseFloat(rate.value):0.9;
+  u.onend=()=>{btn.classList.remove('speaking');btn.textContent='\u{1F50A}';if(currentBtn===btn)currentBtn=null;};
+  btn.classList.add('speaking');btn.textContent='\u23F8';
+  currentBtn=btn;
+  window.speechSynthesis.speak(u);
+}
+function addSpeakerButtons(){
+  // Inject a phonetic line under each question first
+  const qPhon={
+    "Will this cure me?":"Will dhiss cure me?",
+    "How long until I feel better?":"How long until I feel better?",
+    "Is this the strongest one you have?":"Iz dhiss the strongest wun yuh have?",
+    "When should I take it?":"When should I take it?",
+    "Do I take it with food or on an empty stomach?":"Do I take it widh food or on an empty stomach?",
+    "What if I forget a dose?":"Wot if I forget a dose?",
+    "Can I stop when I feel better?\" (antibiotics)":"Can I stop when I feel better?",
+    "Can I cut the tablet in half?":"Can I cut the tablet in half?",
+    "Will it have side effects?":"Will it have side effects?",
+    "I've had a rash since starting it \u2014 is that normal?":"I've had a rash since starting it, iz dhat normal?",
+    "Can I drink alcohol with this?":"Can I drink alcohol widh dhiss?",
+    "Can I take it with my other tablets?":"Can I take it widh my other tablets?",
+    "I'm pregnant \u2014 is it safe?":"I'm pregnant, iz it safe?",
+    "What's wrong with me? Do you think I have an infection?":"Wots wrong widh me? D'yuh think I have an infection?",
+    "Can you just give me something instead of the doctor?":"Can yuh just give me something instead of the doctor?",
+    "My friend has the same symptoms \u2014 can I give them my tablets?":"My friend haz the same symptoms, can I give them my tablets?",
+    "Why is it so expensive? Is there a cheaper one?":"Why iz it so expensive? Iz there a cheaper wun?"
+  };
+  document.querySelectorAll('#tab-bank .qa-q').forEach(q=>{
+    if(q.nextElementSibling&&q.nextElementSibling.classList.contains('qa-qphon'))return;
+    const key=q.textContent.replace(/^[\s\u{1F50A}\u23F8]+/u,'').replace(/^["\u201c]/,'').replace(/["\u201d]$/,'').trim();
+    const phon=qPhon[key];
+    if(!phon)return;
+    const line=document.createElement('p');
+    line.className='qa-line qa-phon qa-qphon';
+    line.innerHTML='<span class="qa-tag">\u{1F50A}</span>"'+phon+'"';
+    q.parentNode.insertBefore(line,q.nextSibling);
+  });
+  const targets=document.querySelectorAll('#tab-bank .qa-q, #tab-bank .qa-say, #tab-bank .qa-phon');
+  targets.forEach(el=>{
+    if(el.querySelector('.tts-btn'))return;
+    const text=el.textContent;
+    const isPhon=el.classList.contains('qa-phon');
+    const btn=document.createElement('button');
+    btn.className='tts-btn';btn.textContent='\u{1F50A}';btn.setAttribute('aria-label','Play audio');
+    btn.onclick=(e)=>{e.stopPropagation();speak(text,btn,isPhon);};
+    el.appendChild(btn);
+  });
+}
+if(window.speechSynthesis){
+  loadVoices();
+  window.speechSynthesis.onvoiceschanged=loadVoices;
+}
+addSpeakerButtons();
+</script>
+</body>
+</html>
