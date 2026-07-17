@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OET Speaking — Pharmacist Role-Plays</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#fff;--bg2:#f5f5f3;--bg3:#eeecea;--text:#1a1a1a;--text2:#555550;--text3:#888880;
+  --border:rgba(0,0,0,0.12);--border2:rgba(0,0,0,0.22);
+  --green-bg:#EAF3DE;--green-text:#3B6D11;--green-border:#639922;
+  --red-bg:#FCEBEB;--red-text:#A32D2D;--red-border:#E24B4A;
+  --blue-bg:#E6F1FB;--blue-text:#185FA5;--amber-bg:#FBF3E0;--amber-text:#8A6516;
+  --radius:12px;--radius-sm:8px;
+}
+[data-theme="dark"]{
+  --bg:#1e1e1c;--bg2:#2a2a28;--bg3:#333331;--text:#f0ede8;--text2:#a8a49e;--text3:#6e6a64;
+  --border:rgba(255,255,255,0.1);--border2:rgba(255,255,255,0.2);
+  --green-bg:#1a2e0a;--green-text:#a8d870;--green-border:#639922;
+  --red-bg:#2e0f0f;--red-text:#f09595;--red-border:#a32d2d;
+  --blue-bg:#0c2340;--blue-text:#85b7eb;--amber-bg:#2e2410;--amber-text:#e0bf78;
+}
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;width:40px;height:40px;border-radius:50%;border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.65;padding:1.5rem 1rem 4rem;max-width:720px;margin:0 auto;}
+.lesson-header{padding-bottom:1.5rem;border-bottom:0.5px solid var(--border);margin-bottom:1.5rem;}
+.eyebrow{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:0.4rem;}
+h1{font-size:22px;font-weight:500;margin-bottom:0.4rem;}
+.meta{font-size:13px;color:var(--text2);display:flex;gap:1.2rem;flex-wrap:wrap;}
+.nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:2rem;}
+.nav-btn{padding:6px 13px;font-size:13px;border-radius:20px;border:0.5px solid var(--border2);background:transparent;color:var(--text2);cursor:pointer;}
+.nav-btn:hover{background:var(--bg2);}
+.nav-btn.active{background:var(--text);color:var(--bg);border-color:transparent;}
+.section{display:none;}
+.section.visible{display:block;}
+.progress-bar{display:flex;gap:6px;margin-bottom:1.5rem;}
+.ps{height:3px;flex:1;border-radius:2px;background:var(--border);}
+.ps.done{background:var(--text);}
+h2{font-size:18px;font-weight:500;margin-bottom:0.3rem;}
+.desc{font-size:14px;color:var(--text2);margin-bottom:1.4rem;}
+.tutor-banner{background:var(--amber-bg);color:var(--amber-text);border-radius:var(--radius);padding:0.9rem 1.1rem;font-size:13px;margin-bottom:1.4rem;}
+.tutor-banner strong{font-weight:600;}
+.timer-box{display:flex;align-items:center;gap:14px;background:var(--bg2);border-radius:var(--radius);padding:1rem 1.2rem;margin-bottom:1.4rem;flex-wrap:wrap;}
+.timer-display{font-size:32px;font-weight:600;font-variant-numeric:tabular-nums;min-width:96px;}
+.timer-btns{display:flex;gap:8px;flex-wrap:wrap;}
+.tbtn{padding:7px 14px;font-size:13px;border-radius:var(--radius-sm);border:0.5px solid var(--border2);background:transparent;color:var(--text);cursor:pointer;}
+.tbtn:hover{background:var(--bg3);}
+.tbtn.primary{background:var(--text);color:var(--bg);border-color:transparent;}
+.timer-label{font-size:12px;color:var(--text3);width:100%;}
+.rule-box{background:var(--bg2);border-radius:var(--radius);padding:1.2rem;margin-bottom:1rem;}
+.rlabel{font-size:11px;text-transform:uppercase;letter-spacing:0.07em;color:var(--text3);margin-bottom:6px;}
+.rtext{font-size:14px;margin-bottom:8px;}
+.stage-card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius);padding:1.2rem;margin-bottom:1rem;}
+.stage-label{font-size:11px;text-transform:uppercase;letter-spacing:0.07em;color:var(--text3);margin-bottom:6px;}
+.rolecard{background:var(--bg);border:1.5px solid var(--border2);border-radius:var(--radius);padding:1.4rem;margin-bottom:1.2rem;}
+.rolecard.candidate{border-color:var(--green-border);}
+.rolecard.interlocutor{border-color:var(--blue-text);}
+.card-badge{font-size:11px;text-transform:uppercase;letter-spacing:0.06em;padding:3px 10px;border-radius:10px;display:inline-block;margin-bottom:10px;font-weight:600;}
+.badge-cand{background:var(--green-bg);color:var(--green-text);}
+.badge-int{background:var(--blue-bg);color:var(--blue-text);}
+.card-setting{font-size:13px;color:var(--text2);font-style:italic;margin-bottom:12px;padding-bottom:12px;border-bottom:0.5px solid var(--border);}
+.card-role{font-size:14px;margin-bottom:8px;}
+.card-tasks{margin:8px 0 0;padding-left:0;list-style:none;}
+.card-tasks li{font-size:14px;padding:5px 0 5px 20px;position:relative;}
+.card-tasks li::before{content:"\2022";position:absolute;left:4px;color:var(--text3);}
+.details-toggle{margin-top:10px;}
+.details-toggle summary{cursor:pointer;font-size:13px;color:var(--blue-text);font-weight:500;list-style:none;}
+.details-toggle summary::-webkit-details-marker{display:none;}
+.details-toggle summary::before{content:"\25B8 ";}
+.details-toggle[open] summary::before{content:"\25BE ";}
+.phrase-group{margin-bottom:1.2rem;}
+.phrase-group-title{font-size:13px;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em;font-size:11px;}
+.phrase-row{display:flex;align-items:baseline;gap:10px;padding:7px 0;border-bottom:0.5px solid var(--border);}
+.ph-en{font-size:14px;flex:1;}
+.ph-use{font-size:12px;color:var(--text3);white-space:nowrap;}
+.crit-item{display:flex;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--border);}
+.crit-num{font-size:13px;font-weight:600;color:var(--text3);min-width:20px;}
+.crit-body{flex:1;}
+.crit-name{font-size:14px;font-weight:500;}
+.crit-desc{font-size:13px;color:var(--text2);}
+.check-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;cursor:pointer;}
+.check-row input{margin-top:3px;width:16px;height:16px;flex-shrink:0;}
+.check-row label{font-size:14px;cursor:pointer;}
+.next-btn{margin-top:1.5rem;padding:9px 22px;border:none;border-radius:var(--radius-sm);font-size:14px;cursor:pointer;background:var(--text);color:var(--bg);}
+.next-btn:hover{opacity:0.85;}
+.pron-word{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius);padding:1rem 1.2rem;margin-bottom:8px;}
+.pw-en{font-size:16px;font-weight:500;margin-bottom:2px;}
+.pw-stress{font-size:13px;font-family:monospace;color:var(--text2);letter-spacing:0.05em;}
+.pw-stress .s{font-weight:600;color:var(--text);text-decoration:underline;text-underline-offset:3px;}
+</style>
+</head>
+<body>
+<button class="theme-toggle" id="tt" onclick="tog()" aria-label="Toggle theme">&#9728;&#65039;</button>
+
+<div class="lesson-header">
+  <p class="eyebrow">Profrenchional &middot; OET Speaking &middot; Derek</p>
+  <h1>OET Speaking &mdash; pharmacist role-plays</h1>
+  <div class="meta">
+    <span>&#9201; ~90 min</span>
+    <span>&#128483; Focus: speaking</span>
+    <span>&#128138; Role: pharmacist</span>
+    <span>&#127919; Skills: medication instructions &amp; explaining treatment</span>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="show('format')">1 &middot; The format</button>
+  <button class="nav-btn" onclick="show('phrases')">2 &middot; Phrase bank</button>
+  <button class="nav-btn" onclick="show('rp1')">3 &middot; Role-play 1</button>
+  <button class="nav-btn" onclick="show('rp2')">4 &middot; Role-play 2</button>
+  <button class="nav-btn" onclick="show('criteria')">5 &middot; Criteria &amp; feedback</button>
+  <button class="nav-btn" onclick="show('pron')">6 &middot; Pronunciation</button>
+</div>
+
+<!-- 1 FORMAT -->
+<div id="format" class="section visible">
+  <div class="progress-bar"><div class="ps done"></div><div class="ps"></div><div class="ps"></div><div class="ps"></div><div class="ps"></div><div class="ps"></div></div>
+  <div class="tutor-banner"><strong>For the tutor.</strong> You play the <em>interlocutor</em> (the patient or family member). Derek leads as the pharmacist. Give him the 3-minute prep timer with the card, then run the role-play for ~5 minutes. Stay in character &mdash; react as a real patient would, raise the concerns on your card, and let him lead. Save feedback for section 5.</div>
+
+  <h2>How OET Speaking works</h2>
+  <p class="desc">The whole sub-test takes about 20 minutes. Derek should know the shape of it before practising.</p>
+
+  <div class="rule-box">
+    <p class="rlabel">The structure</p>
+    <p class="rtext"><strong>1. Warm-up (2 min, not scored):</strong> light chat about his job and experience, to reduce nerves.</p>
+    <p class="rtext"><strong>2. Prep time (3 min per role-play):</strong> he reads the role card and makes notes. He may keep the card during the role-play.</p>
+    <p class="rtext"><strong>3. Two role-plays (5 min each):</strong> he is always the health professional; the interlocutor is the patient or carer. <em>He</em> leads the conversation.</p>
+  </div>
+
+  <div class="rule-box">
+    <p class="rlabel">The 5 stages of a good role-play</p>
+    <p class="rtext"><strong>1. Greet &amp; build rapport</strong> &mdash; warm, professional opening.</p>
+    <p class="rtext"><strong>2. Find out</strong> &mdash; ask what the patient knows / how they feel.</p>
+    <p class="rtext"><strong>3. Explain / instruct</strong> &mdash; clear, simple, no jargon; advice as suggestions, not orders.</p>
+    <p class="rtext"><strong>4. Check &amp; respond</strong> &mdash; check understanding, deal with worries.</p>
+    <p class="rtext"><strong>5. Close</strong> &mdash; summarise, next steps, invite questions.</p>
+  </div>
+
+  <div class="stage-card">
+    <p class="stage-label">Warm-up questions (run these first, ~2 min)</p>
+    <p class="rtext">&bull; Can you tell me a little about your work as a pharmacist?</p>
+    <p class="rtext">&bull; How long did you run pharmacies in Korea?</p>
+    <p class="rtext">&bull; What do you enjoy most about working with patients?</p>
+  </div>
+
+  <button class="next-btn" onclick="show('phrases')">Next: Phrase bank &rarr;</button>
+</div>
+
+<!-- 2 PHRASES -->
+<div id="phrases" class="section">
+  <div class="progress-bar"><div class="ps done"></div><div class="ps done"></div><div class="ps"></div><div class="ps"></div><div class="ps"></div><div class="ps"></div></div>
+  <h2>Phrase bank</h2>
+  <p class="desc">These are fixed "chunks" for each stage. Learning them frees Derek's mind to focus on the interaction. Go through them before the role-plays; he can glance at them during prep.</p>
+
+  <div class="phrase-group">
+    <p class="phrase-group-title">Greeting &amp; rapport</p>
+    <div class="phrase-row"><p class="ph-en">"Good morning, I'm the pharmacist here today. How can I help you?"</p><p class="ph-use">open</p></div>
+    <div class="phrase-row"><p class="ph-en">"I can see this is worrying you. Let's go through it together."</p><p class="ph-use">empathy</p></div>
+    <div class="phrase-row"><p class="ph-en">"Before we start, can I check a few things with you?"</p><p class="ph-use">signpost</p></div>
+  </div>
+
+  <div class="phrase-group">
+    <p class="phrase-group-title">Finding out (information gathering)</p>
+    <div class="phrase-row"><p class="ph-en">"Can you tell me what the doctor has told you so far?"</p><p class="ph-use">check knowledge</p></div>
+    <div class="phrase-row"><p class="ph-en">"Have you taken this kind of medication before?"</p><p class="ph-use">history</p></div>
+    <div class="phrase-row"><p class="ph-en">"How have you been feeling since you started it?"</p><p class="ph-use">open question</p></div>
+  </div>
+
+  <div class="phrase-group">
+    <p class="phrase-group-title">Giving medication instructions</p>
+    <div class="phrase-row"><p class="ph-en">"You'll need to take one tablet twice a day, with food."</p><p class="ph-use">dosage</p></div>
+    <div class="phrase-row"><p class="ph-en">"It's best to take it at the same time each day."</p><p class="ph-use">timing</p></div>
+    <div class="phrase-row"><p class="ph-en">"Try to avoid alcohol while you're on this medicine."</p><p class="ph-use">suggestion, not order</p></div>
+    <div class="phrase-row"><p class="ph-en">"If you miss a dose, take it as soon as you remember."</p><p class="ph-use">missed dose</p></div>
+  </div>
+
+  <div class="phrase-group">
+    <p class="phrase-group-title">Explaining treatment (no jargon)</p>
+    <div class="phrase-row"><p class="ph-en">"This medicine works by lowering your blood pressure gradually."</p><p class="ph-use">how it works</p></div>
+    <div class="phrase-row"><p class="ph-en">"In simple terms, it helps your body get rid of extra fluid."</p><p class="ph-use">simplify</p></div>
+    <div class="phrase-row"><p class="ph-en">"You might notice some mild side effects at first, such as..."</p><p class="ph-use">side effects</p></div>
+  </div>
+
+  <div class="phrase-group">
+    <p class="phrase-group-title">Checking understanding &amp; closing</p>
+    <div class="phrase-row"><p class="ph-en">"Just so I know it's clear, could you tell me how you'll take it?"</p><p class="ph-use">teach-back</p></div>
+    <div class="phrase-row"><p class="ph-en">"Does that all make sense, or would you like me to go over anything?"</p><p class="ph-use">check</p></div>
+    <div class="phrase-row"><p class="ph-en">"So, to sum up: one tablet, twice a day, with food."</p><p class="ph-use">summarise</p></div>
+  </div>
+
+  <button class="next-btn" onclick="show('rp1')">Next: Role-play 1 &rarr;</button>
+</div>
+
+<!-- 3 ROLE PLAY 1 -->
+<div id="rp1" class="section">
+  <div class="progress-bar"><div class="ps done"></div><div class="ps done"></div><div class="ps done"></div><div class="ps"></div><div class="ps"></div><div class="ps"></div></div>
+  <h2>Role-play 1 &mdash; giving medication instructions</h2>
+  <p class="desc">Focus skill: <strong>information giving</strong>. Give Derek the candidate card and start the 3-minute prep timer. Keep the interlocutor card for yourself.</p>
+
+  <div class="timer-box">
+    <div class="timer-display" id="t1">3:00</div>
+    <div class="timer-btns">
+      <button class="tbtn primary" onclick="startTimer('t1',180)">Prep (3:00)</button>
+      <button class="tbtn" onclick="startTimer('t1',300)">Role-play (5:00)</button>
+      <button class="tbtn" onclick="stopTimer('t1')">Stop</button>
+      <button class="tbtn" onclick="resetTimer('t1',180)">Reset</button>
+    </div>
+    <span class="timer-label">Use "Prep" while Derek reads the card, then "Role-play" for the conversation.</span>
+  </div>
+
+  <div class="rolecard candidate">
+    <span class="card-badge badge-cand">Candidate card &mdash; give this to Derek</span>
+    <p class="card-setting">SETTING: A community pharmacy. A 58-year-old patient has just been prescribed <strong>metformin</strong> for newly diagnosed type 2 diabetes. This is their first time on the medication.</p>
+    <p class="card-role"><strong>You are the pharmacist.</strong></p>
+    <ul class="card-tasks">
+      <li>Greet the patient and build rapport.</li>
+      <li>Find out what they already understand about the medicine.</li>
+      <li>Explain clearly how and when to take metformin (one tablet twice a day, with meals).</li>
+      <li>Explain that mild stomach upset is common at first and usually settles.</li>
+      <li>Reassure the patient and check their understanding before they leave.</li>
+    </ul>
+  </div>
+
+  <details class="details-toggle">
+    <summary>Interlocutor card (tutor only &mdash; don't show Derek)</summary>
+    <div class="rolecard interlocutor" style="margin-top:10px;">
+      <span class="card-badge badge-int">Interlocutor card &mdash; the patient</span>
+      <p class="card-setting">You are a 58-year-old, recently told you have type 2 diabetes. You are a little anxious and not sure why you need medicine when you "feel fine."</p>
+      <ul class="card-tasks">
+        <li>Start slightly worried: "I don't really understand why I need this if I feel okay."</li>
+        <li>Ask: "Do I have to take it forever?"</li>
+        <li>Raise a concern: a friend told you it "upsets the stomach."</li>
+        <li>Only relax once the pharmacist explains clearly and reassures you.</li>
+        <li>Near the end, ask: "What if I forget a dose?"</li>
+      </ul>
+    </div>
+  </details>
+
+  <button class="next-btn" onclick="show('rp2')">Next: Role-play 2 &rarr;</button>
+</div>
+
+<!-- 4 ROLE PLAY 2 -->
+<div id="rp2" class="section">
+  <div class="progress-bar"><div class="ps done"></div><div class="ps done"></div><div class="ps done"></div><div class="ps done"></div><div class="ps"></div><div class="ps"></div></div>
+  <h2>Role-play 2 &mdash; explaining a treatment</h2>
+  <p class="desc">Focus skill: <strong>explaining treatment &amp; managing concern</strong>. Again: 3-minute prep, then ~5-minute role-play.</p>
+
+  <div class="timer-box">
+    <div class="timer-display" id="t2">3:00</div>
+    <div class="timer-btns">
+      <button class="tbtn primary" onclick="startTimer('t2',180)">Prep (3:00)</button>
+      <button class="tbtn" onclick="startTimer('t2',300)">Role-play (5:00)</button>
+      <button class="tbtn" onclick="stopTimer('t2')">Stop</button>
+      <button class="tbtn" onclick="resetTimer('t2',180)">Reset</button>
+    </div>
+    <span class="timer-label">Use "Prep" while Derek reads the card, then "Role-play" for the conversation.</span>
+  </div>
+
+  <div class="rolecard candidate">
+    <span class="card-badge badge-cand">Candidate card &mdash; give this to Derek</span>
+    <p class="card-setting">SETTING: A community pharmacy. A 45-year-old patient collects a course of <strong>antibiotics</strong> (amoxicillin) for a chest infection. They have used antibiotics before and often stop early once they "feel better."</p>
+    <p class="card-role"><strong>You are the pharmacist.</strong></p>
+    <ul class="card-tasks">
+      <li>Greet the patient and check what the doctor has explained.</li>
+      <li>Explain how to take the course (three times a day, spaced out, for the full 7 days).</li>
+      <li>Explain clearly <em>why</em> they must finish the whole course, even if they feel better.</li>
+      <li>Explain, in simple terms, what antibiotic resistance is and why it matters.</li>
+      <li>Check understanding and answer their questions.</li>
+    </ul>
+  </div>
+
+  <details class="details-toggle">
+    <summary>Interlocutor card (tutor only &mdash; don't show Derek)</summary>
+    <div class="rolecard interlocutor" style="margin-top:10px;">
+      <span class="card-badge badge-int">Interlocutor card &mdash; the patient</span>
+      <p class="card-setting">You are 45, in a hurry, and think antibiotics are "no big deal." You usually stop taking them once you feel better.</p>
+      <ul class="card-tasks">
+        <li>Mention casually: "I usually stop these once I feel better &mdash; is that fine?"</li>
+        <li>Push back a little: "Seven days seems like a lot."</li>
+        <li>Ask: "What actually happens if I don't finish them?"</li>
+        <li>Only accept once the pharmacist explains resistance clearly and simply.</li>
+        <li>End by asking: "Can I drink alcohol with these?"</li>
+      </ul>
+    </div>
+  </details>
+
+  <button class="next-btn" onclick="show('criteria')">Next: Criteria &amp; feedback &rarr;</button>
+</div>
+
+<!-- 5 CRITERIA -->
+<div id="criteria" class="section">
+  <div class="progress-bar"><div class="ps done"></div><div class="ps done"></div><div class="ps done"></div><div class="ps done"></div><div class="ps done"></div><div class="ps"></div></div>
+  <h2>Assessment criteria &amp; feedback</h2>
+  <p class="desc">These are the nine official OET criteria. Use the checklist after each role-play to give Derek specific, targeted feedback &mdash; not just "good job."</p>
+
+  <div class="rule-box">
+    <p class="rlabel">Linguistic criteria (his stated weak area)</p>
+    <div class="crit-item"><span class="crit-num">1</span><div class="crit-body"><p class="crit-name">Intelligibility</p><p class="crit-desc">Clear pronunciation, word stress, intonation. (Derek's main focus.)</p></div></div>
+    <div class="crit-item"><span class="crit-num">2</span><div class="crit-body"><p class="crit-name">Fluency</p><p class="crit-desc">Smooth pace, natural pauses, few "ums" and false starts.</p></div></div>
+    <div class="crit-item"><span class="crit-num">3</span><div class="crit-body"><p class="crit-name">Appropriateness</p><p class="crit-desc">Right level of formality; simple language for the patient.</p></div></div>
+    <div class="crit-item"><span class="crit-num">4</span><div class="crit-body"><p class="crit-name">Grammar &amp; expression</p><p class="crit-desc">Range and accuracy of structures and vocabulary.</p></div></div>
+  </div>
+
+  <div class="rule-box">
+    <p class="rlabel">Clinical communication criteria</p>
+    <div class="crit-item"><span class="crit-num">5</span><div class="crit-body"><p class="crit-name">Relationship-building</p><p class="crit-desc">Warm greeting, empathy, patient-centred tone.</p></div></div>
+    <div class="crit-item"><span class="crit-num">6</span><div class="crit-body"><p class="crit-name">Patient's perspective</p><p class="crit-desc">Acknowledges feelings, worries, and views.</p></div></div>
+    <div class="crit-item"><span class="crit-num">7</span><div class="crit-body"><p class="crit-name">Providing structure</p><p class="crit-desc">Logical order; signposts each stage.</p></div></div>
+    <div class="crit-item"><span class="crit-num">8</span><div class="crit-body"><p class="crit-name">Information gathering</p><p class="crit-desc">Good questions; checks what the patient knows.</p></div></div>
+    <div class="crit-item"><span class="crit-num">9</span><div class="crit-body"><p class="crit-name">Information giving</p><p class="crit-desc">Clear, simple, jargon-free; advice as suggestions; checks understanding.</p></div></div>
+  </div>
+
+  <p style="font-size:15px;font-weight:500;margin:1.5rem 0 0.6rem;">Quick feedback checklist</p>
+  <p class="desc" style="margin-bottom:0.6rem;">Tick what Derek did well; leave blank what to work on next time.</p>
+  <div id="checklist"></div>
+
+  <button class="next-btn" onclick="show('pron')">Next: Pronunciation &rarr;</button>
+</div>
+
+<!-- 6 PRON -->
+<div id="pron" class="section">
+  <div class="progress-bar"><div class="ps done"></div><div class="ps done"></div><div class="ps done"></div><div class="ps done"></div><div class="ps done"></div><div class="ps done"></div></div>
+  <h2>Pronunciation &mdash; words from today</h2>
+  <p class="desc">Intelligibility is Derek's key weak point and a scored criterion. Drill the stress on these pharmacy words. The <u>underlined</u> syllable takes the main stress.</p>
+  <div id="pron-words"></div>
+
+  <div class="rule-box" style="margin-top:1.2rem;">
+    <p class="rlabel">Intonation tip for instructions</p>
+    <p class="rtext">When listing steps, use a <strong>rising</strong> tone on each item and a <strong>falling</strong> tone on the last one: "One tablet <em>(rise)</em>, twice a day <em>(rise)</em>, with food <em>(fall)</em>." This sounds clear and complete &mdash; and helps intelligibility.</p>
+  </div>
+</div>
+
+<script>
+(function(){let s=null;try{s=localStorage.getItem('derek-oet-theme');}catch(e){}
+const d=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+document.documentElement.setAttribute('data-theme',s||(d?'dark':'light'));})();
+function tog(){const c=document.documentElement.getAttribute('data-theme');const n=c==='dark'?'light':'dark';
+document.documentElement.setAttribute('data-theme',n);document.getElementById('tt').textContent=n==='dark'?'\u{1F319}':'\u2600\uFE0F';
+try{localStorage.setItem('derek-oet-theme',n);}catch(e){}}
+(function(){const t=document.documentElement.getAttribute('data-theme');document.getElementById('tt').textContent=t==='dark'?'\u{1F319}':'\u2600\uFE0F';})();
+
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('visible'));
+  document.getElementById(id).classList.add('visible');
+  const ids=['format','phrases','rp1','rp2','criteria','pron'];
+  document.querySelectorAll('.nav-btn').forEach((b,i)=>b.classList.toggle('active',ids[i]===id));
+  window.scrollTo(0,0);
+}
+
+// Timers
+const timers={};
+function fmt(sec){const m=Math.floor(sec/60);const s=sec%60;return m+':'+(s<10?'0':'')+s;}
+function startTimer(id,secs){
+  if(timers[id])clearInterval(timers[id].h);
+  let remaining=secs;
+  const el=document.getElementById(id);
+  el.textContent=fmt(remaining);
+  el.style.color='';
+  timers[id]={h:setInterval(()=>{
+    remaining--;
+    el.textContent=fmt(Math.max(0,remaining));
+    if(remaining<=10)el.style.color='var(--red-text)';
+    if(remaining<=0){clearInterval(timers[id].h);el.textContent='0:00';el.style.color='var(--red-text)';}
+  },1000),secs:secs};
+}
+function stopTimer(id){if(timers[id])clearInterval(timers[id].h);}
+function resetTimer(id,secs){if(timers[id])clearInterval(timers[id].h);const el=document.getElementById(id);el.textContent=fmt(secs);el.style.color='';}
+
+// Checklist
+const checkItems=[
+  "Greeted warmly and built rapport",
+  "Found out what the patient already knew",
+  "Gave instructions clearly, step by step",
+  "Avoided medical jargon (or explained it simply)",
+  "Gave advice as suggestions, not orders",
+  "Acknowledged the patient's worries",
+  "Checked understanding before closing",
+  "Summarised the key points at the end",
+  "Clear pronunciation and word stress",
+  "Smooth pace, few hesitations"
+];
+function buildChecklist(){
+  const c=document.getElementById('checklist');c.innerHTML='';
+  checkItems.forEach((it,i)=>{
+    const row=document.createElement('div');row.className='check-row';
+    row.innerHTML='<input type="checkbox" id="ck'+i+'"><label for="ck'+i+'">'+it+'</label>';
+    c.appendChild(row);
+  });
+}
+
+const pronWords=[
+  {w:"pharmacist",stress:"<span class='s'>PHAR</span> \u00b7 ma \u00b7 cist",},
+  {w:"metformin",stress:"met \u00b7 <span class='s'>FOR</span> \u00b7 min",},
+  {w:"diabetes",stress:"di \u00b7 a \u00b7 <span class='s'>BE</span> \u00b7 tes",},
+  {w:"antibiotics",stress:"an \u00b7 ti \u00b7 bi \u00b7 <span class='s'>O</span> \u00b7 tics",},
+  {w:"amoxicillin",stress:"a \u00b7 mox \u00b7 i \u00b7 <span class='s'>CIL</span> \u00b7 lin",},
+  {w:"resistance",stress:"re \u00b7 <span class='s'>SIS</span> \u00b7 tance",},
+  {w:"dosage",stress:"<span class='s'>DO</span> \u00b7 sage",},
+  {w:"prescription",stress:"pre \u00b7 <span class='s'>SCRIP</span> \u00b7 tion",}
+];
+function buildPron(){
+  const c=document.getElementById('pron-words');c.innerHTML='';
+  pronWords.forEach(w=>{const d=document.createElement('div');d.className='pron-word';
+    d.innerHTML='<p class="pw-en">'+w.w+'</p><p class="pw-stress">'+w.stress+'</p>';
+    c.appendChild(d);});
+}
+
+buildChecklist();buildPron();
+</script>
+</body>
+</html>
